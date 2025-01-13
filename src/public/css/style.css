@@ -1,13 +1,24 @@
-/* DOS/Amber Monitor Style */
+/* DOS theme base styles */
 body {
     background-color: #000000;
-    color: #FFB000;  /* Classic amber color */
+    color: #FFB000;  /* Classic amber DOS color */
     font-family: "Courier New", Courier, monospace;
-    line-height: 1.4;
-    max-width: 80ch;  /* Typical terminal width */
-    margin: 0 auto;
-    padding: 1rem;
-    text-shadow: 0 0 5px rgba(255, 176, 0, 0.5);  /* Amber glow effect */
+    margin: 2rem;
+    line-height: 1.5;
+}
+
+/* Navigation styling */
+nav {
+    border-bottom: 1px solid #FFB000;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Prompt styling */
+.prompt {
+    color: #FFB000;
+    margin: 1rem 0;
+    font-weight: bold;
 }
 
 /* Terminal window effect */
@@ -19,12 +30,6 @@ main {
 }
 
 /* Navigation styled as command options */
-nav {
-    border-bottom: 1px solid #FFB000;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-}
-
 nav a {
     color: #FFB000;
     text-decoration: none;

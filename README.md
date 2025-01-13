@@ -7,3 +7,5 @@
 3. Make a Markdown -> HTML converter
 4. Simple integration for ConvertKit
 5. Make a simple contact form
+6. Make use of a Solid Pod from Tim Berners-Lee
+

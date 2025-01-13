@@ -15,13 +15,17 @@
         <a href="{{basePath}}/faq.html" aria-label="Go to FAQ">FAQ</a>
     </nav>
     <main role="main">
-        <div class="prompt" aria-label="Current directory">CD {{title}}</div>
+        <div class="prompt" aria-label="Current directory">TYPE {{title}}.TXT</div>
         <article>
+            <header>
+                <p class="meta">Created: {{date}}</p>
+                {{#if tags}}<p class="meta">Tags: [{{tags}}]</p>{{/if}}
+            </header>
             {{content}}
         </article>
     </main>
     <footer role="contentinfo">
-        <div class="prompt">ECHO "Type HELP for commands"</div>
+        <div class="prompt">CD ..</div>
     </footer>
 </body>
-</html>
+</html> 

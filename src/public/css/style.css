@@ -5,47 +5,91 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dos-yellow: #FFB000;
+    --dos-black: #000000;
+    --dos-dim: rgba(255, 176, 0, 0.7);
+    --dos-bright: #FFD700;
+    --dos-border: #FFB000;
+    --min-touch-target: 44px;
+    --content-max-width: 800px;
+    --line-height: 1.5;
+    --spacing-unit: 1rem;
+    --title-height: 1.5rem;
+}
+
 body {
-    background-color: #000000;
-    color: #FFB000;
+    background-color: var(--dos-black);
+    color: var(--dos-yellow);
     font-family: "Courier New", Courier, monospace;
-    margin: 2rem;
-    line-height: 1.5;
-    min-height: 100vh;
-}
-
-main {
-    max-width: 800px;
     margin: 0 auto;
+    line-height: var(--line-height);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) var(--spacing-unit);
+    border: 2px solid var(--dos-yellow);
+    position: relative;
 }
 
-/* Navigation styling */
-nav {
-    border-bottom: 1px solid #FFB000;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+/* Title Bar */
+body:before {
+    content: "D:\\Users\\Hi - DOS Mode";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-yellow);
+    color: var(--dos-black);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--dos-border);
 }
 
-/* Prompt styling */
-.prompt {
-    color: #FFB000;
-    margin: 1rem 0;
+/* Window Controls (decorative) */
+body:after {
+    content: "[ _ □ X ]";
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    height: var(--title-height);
+    color: var(--dos-black);
+    display: flex;
+    align-items: center;
     font-weight: bold;
 }
 
-/* Terminal window effect */
-main {
-    border: 2px solid #FFB000;
-    padding: 2rem;
-    margin: 1rem 0;
-    box-shadow: inset 0 0 10px rgba(255, 176, 0, 0.3);
+/* Navigation with proper touch targets */
+nav {
+    border-bottom: none;
+    padding-bottom: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    padding-left: 3rem;
 }
 
-/* Navigation styled as command options */
+nav:before {
+    content: "C:\\>";
+    position: absolute;
+    left: 0;
+    color: var(--dos-dim);
+    top: calc(var(--min-touch-target) / 4);
+}
+
 nav a {
-    color: #FFB000;
+    color: var(--dos-yellow);
     text-decoration: none;
-    margin-right: 2rem;
+    padding: calc(var(--min-touch-target) / 4);
+    min-height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
@@ -54,85 +98,228 @@ nav a:before {
     margin-right: 0.5rem;
 }
 
-nav a:hover {
-    background-color: #FFB000;
-    color: #000000;
+/* Interactive element feedback */
+nav a:hover, 
+nav a:focus,
+a:hover,
+a:focus {
+    background-color: var(--dos-yellow);
+    color: var(--dos-black);
+    outline: none;
+}
+
+/* Content structure */
+main {
+    max-width: var(--content-max-width);
+    margin: 0;
+    padding: var(--spacing-unit) 0;
+    flex: 1;
+    border: none;
+}
+
+article {
+    margin: var(--spacing-unit) 0;
+}
+
+/* Article header and metadata */
+article header {
+    margin-bottom: var(--spacing-unit);
+}
+
+.meta {
+    color: var(--dos-dim);
+    margin: calc(var(--spacing-unit) / 2) 0;
 }
 
 /* Headers with DOS-style underlines */
 h1, h2, h3 {
-    border-bottom: 1px solid #FFB000;
+    border-bottom: none;
     padding-bottom: 0.5rem;
+    margin: 2rem 0 1rem 0;
+    clear: both;
 }
 
-/* Lists with DOS-style bullets */
+h1:first-child {
+    margin-top: 0;
+}
+
+/* Lists with DOS-style markers */
 ul {
     list-style: none;
     padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+ul li {
+    padding: calc(var(--min-touch-target) / 4) 0;
+    position: relative;
 }
 
 ul li:before {
     content: ">";
-    color: #FFB000;
-    margin-right: 1rem;
+    color: var(--dos-yellow);
+    position: absolute;
+    left: -1rem;
 }
 
-/* Links styled as commands */
+/* Links styled as commands with proper touch targets */
 a {
-    color: #FFB000;
+    color: var(--dos-yellow);
     text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    min-height: calc(var(--min-touch-target) * 0.75);
 }
 
-a:hover {
-    background-color: #FFB000;
-    color: #000000;
+/* Prompt styling */
+.prompt {
+    color: var(--dos-yellow);
+    margin: var(--spacing-unit) 0;
+    font-weight: bold;
+    min-height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
+    padding-left: 0;
 }
 
-/* Blinking cursor effect at the end of the page */
-main:after {
+.prompt:before {
+    content: none;
+}
+
+/* Footer styling */
+footer {
+    max-width: var(--content-max-width);
+    margin: var(--spacing-unit) 0 0;
+    padding: var(--spacing-unit) 0;
+    border-top: 1px solid var(--dos-yellow);
+}
+
+footer .prompt {
+    color: var(--dos-dim);
+    font-size: 0.9em;
+}
+
+/* Blinking cursor effect */
+.prompt:after {
+    content: none;
+}
+
+footer .prompt:after {
     content: "█";
     animation: blink 1s step-end infinite;
-    font-weight: bold;
 }
 
 @keyframes blink {
     50% { opacity: 0; }
 }
 
-/* Optional: scanline effect */
-body:before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        transparent 50%,
-        rgba(255, 176, 0, 0.05) 50%
-    );
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 1000;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    :root {
+        --spacing-unit: 0.75rem;
+    }
+
+    body {
+        margin: 0;
+        padding: calc(var(--spacing-unit) / 2);
+    }
+
+    main {
+        padding: var(--spacing-unit);
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: calc(var(--min-touch-target) / 3);
+    }
+
+    body:before {
+        content: "DOS Mode - Mobile";
+    }
+    
+    body:after {
+        content: "[ X ]";
+    }
 }
 
 /* Code blocks and pre formatting */
 pre, code {
     background-color: transparent;
-    border: 1px solid #FFB000;
-    padding: 0.5rem;
+    border: 1px solid var(--dos-yellow);
+    padding: var(--spacing-unit);
+    margin: var(--spacing-unit) 0;
+    overflow-x: auto;
+    font-size: 0.9em;
 }
 
 /* Form elements if needed */
 input, textarea {
-    background-color: #000000;
-    color: #FFB000;
-    border: 1px solid #FFB000;
+    background-color: var(--dos-black);
+    color: var(--dos-yellow);
+    border: 1px solid var(--dos-yellow);
     padding: 0.5rem;
+    min-height: var(--min-touch-target);
     font-family: "Courier New", Courier, monospace;
 }
 
 input:focus, textarea:focus {
     outline: none;
-    box-shadow: 0 0 5px #FFB000;
+    box-shadow: 0 0 5px var(--dos-yellow);
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--dos-yellow);
+    outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dos-black);
+    border: 1px solid var(--dos-yellow);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dos-yellow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dos-bright);
+}
+
+/* Optional: Add some scan lines for that CRT feel */
+@media (min-width: 601px) {
+    body:after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 176, 0, 0.02) 2px,
+            rgba(255, 176, 0, 0.02) 4px
+        );
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.5;
+    }
+}
+
+/* Section separators */
+article section:not(:last-child) {
+    margin-bottom: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--dos-yellow);
 } 

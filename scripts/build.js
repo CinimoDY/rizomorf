@@ -7,7 +7,7 @@ const CONTENT_DIR = path.join(__dirname, '../src/content');
 const OUTPUT_DIR = path.join(__dirname, '../dist');
 const TEMPLATE_DIR = path.join(__dirname, '../src/templates');
 const BASE_PATH = process.env.NODE_ENV === 'production' 
-  ? '/homepage'
+  ? '/rizomorf'
   : '.';
 
 async function build() {

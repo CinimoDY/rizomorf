@@ -1,5 +1,9 @@
-# Static Site Generator
+#Static Site with HTML, CSS, JS and simple node libraries
 
-A simple static site generator that converts Markdown to HTML.
+## Plan
 
-## Project Structure
+1. Make a simple Langing page
+2. Make a template for a blog post
+3. Make a Markdown -> HTML converter
+4. Simple integration for ConvertKit
+5. Make a simple contact form

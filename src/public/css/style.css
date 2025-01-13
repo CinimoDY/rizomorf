@@ -1,10 +1,22 @@
-/* DOS theme base styles */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #000000;
-    color: #FFB000;  /* Classic amber DOS color */
+    color: #FFB000;
     font-family: "Courier New", Courier, monospace;
     margin: 2rem;
     line-height: 1.5;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Navigation styling */

@@ -29,15 +29,13 @@ async function buildPages() {
   const pages = await fs.readdir(pagesDir);
   
   for (const page of pages) {
-    if (page.endsWith('.md')) {
+    // Skip index.md since we're using a direct HTML file
+    if (page.endsWith('.md') && page !== 'index.md') {
       const content = await fs.readFile(path.join(pagesDir, page), 'utf-8');
       const { attributes, body } = frontMatter(content);
       const html = marked(body);
       
-      const outputPath = path.join(
-        OUTPUT_DIR, 
-        page === 'index.md' ? 'index.html' : page.replace('.md', '.html')
-      );
+      const outputPath = path.join(OUTPUT_DIR, page.replace('.md', '.html'));
       await fs.outputFile(outputPath, applyTemplate('page', { content: html, ...attributes }));
     }
   }

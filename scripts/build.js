@@ -6,6 +6,9 @@ const frontMatter = require('front-matter');
 const CONTENT_DIR = path.join(__dirname, '../src/content');
 const OUTPUT_DIR = path.join(__dirname, '../dist');
 const TEMPLATE_DIR = path.join(__dirname, '../src/templates');
+const BASE_PATH = process.env.NODE_ENV === 'production' 
+  ? '/homepage'
+  : '.';
 
 async function build() {
   // Clear previous build
@@ -58,7 +61,12 @@ async function buildBlog() {
 
 function applyTemplate(templateName, data) {
   const template = fs.readFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`), 'utf-8');
-  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => data[key] || '');
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
+    if (key === 'cssPath') {
+      return `${BASE_PATH}/css/style.css`;
+    }
+    return data[key] || '';
+  });
 }
 
 build().catch(console.error); 

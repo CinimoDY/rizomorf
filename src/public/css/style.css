@@ -1,4 +1,4 @@
- /* Reset and base styles */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -162,7 +162,7 @@ ul li:before {
     left: -1rem;
 }
 
-/* Links styled as commands with proper touch targets */
+/* Links styled as commands */
 a {
     color: var(--dos-yellow);
     text-decoration: none;

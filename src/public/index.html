@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website with DOS theme">
     <title>D:\Users\Hi - DOS Mode</title>
     <link rel="stylesheet" href="{{basePath}}/css/style.css" type="text/css">
 </head>
 <body>
-    <nav>
-        <a href="{{basePath}}/index.html">D:\INDEX</a>
-        <a href="{{basePath}}/blog/index.html">D:\FEED</a>
-        <a href="{{basePath}}/about.html">D:\ABOUT</a>
-        <a href="{{basePath}}/faq.html">D:\FAQ</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="{{basePath}}/index.html" aria-label="Go to Index">INDEX</a>
+        <a href="{{basePath}}/blog/index.html" aria-label="Go to Feed">FEED</a>
+        <a href="{{basePath}}/about.html" aria-label="Go to About">ABOUT</a>
+        <a href="{{basePath}}/faq.html" aria-label="Go to FAQ">FAQ</a>
     </nav>
-    <main>
-        <div class="prompt">D:\> TYPE WELCOME.TXT</div>
+    <main role="main">
+        <div class="prompt" aria-label="Current directory">TYPE WELCOME.TXT</div>
         
-        <h1>Welcome!</h1>
-        <p>You have found your way to my webnode/index which i can now directly edit</p>
+        <article>
+            <section>
+                <h1>Welcome!</h1>
+                <p>You have found your way to my webnode/index which i can now directly edit</p>
 
-        <h2>Features</h2>
-        <ul>
-            <li>Writing: updates on this and that</li>
-            <li>UX Consulting: how i can help you</li>
-            <li>Things: inventions and projects</li>
-            <li>Get in touch: email me</li>
-        </ul>
+                <h2>Features</h2>
+                <ul>
+                    <li>Writing: updates on this and that</li>
+                    <li>UX Consulting: how i can help you</li>
+                    <li>Things: inventions and projects</li>
+                    <li>Get in touch: email me</li>
+                </ul>
+            </section>
 
-        <h2>Recent Posts</h2>
-        <p>Check my <a href="{{basePath}}/blog">blog section</a> for more posts.</p>
-
-        <div class="prompt">D:\></div>
+            <section>
+                <h2>Recent Posts</h2>
+                <p>Check my <a href="{{basePath}}/blog">blog section</a> for more posts.</p>
+            </section>
+        </article>
     </main>
+    <footer role="contentinfo">
+        <div class="prompt">ECHO "Type HELP for commands"</div>
+    </footer>
 </body>
 </html> 

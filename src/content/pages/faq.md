@@ -1,4 +1,4 @@
- ---
+---
 title: faq
 description: Frequently asked questions about this site
 ---

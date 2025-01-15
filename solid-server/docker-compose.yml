@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  solid-server:
+    build: .
+    container_name: solid-pod
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - CSS_PORT=3000
+      - CSS_BASE_URL=https://pod.eidotter.com
+      - CSS_ROOT_FILE_PATH=/app/data
+      - CSS_CONFIG_PATH=/app/config/config.json
+    restart: unless-stopped
+    networks:
+      - solid-network
+
+networks:
+  solid-network:
+    name: solid-network 

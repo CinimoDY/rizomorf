@@ -12,6 +12,21 @@ const BASE_PATH = process.env.NODE_ENV === 'production'
 
 console.log('Building with BASE_PATH:', BASE_PATH);
 
+// Custom renderer to transform links in production
+const renderer = new marked.Renderer();
+renderer.link = function(href, title, text) {
+    if (process.env.NODE_ENV === 'production' && href.startsWith('/')) {
+        href = `/rizomorf${href}`;
+    }
+    return title 
+        ? `<a href="${href}" title="${title}">${text}</a>`
+        : `<a href="${href}">${text}</a>`;
+};
+
+marked.setOptions({
+    renderer: renderer
+});
+
 async function build() {
   // Clear previous build
   await fs.emptyDir(OUTPUT_DIR);

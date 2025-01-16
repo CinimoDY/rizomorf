@@ -7,18 +7,17 @@
     <title>{{title}} - DOS Mode</title>
     <link rel="stylesheet" href="{{basePath}}/css/style.css" type="text/css">
 </head>
-<body>
+<body data-page-title="{{title}}">
+    <div class="window-controls" aria-hidden="true">[ _ □ X ]</div>
+    <div class="scanlines" aria-hidden="true"></div>
     <nav role="navigation" aria-label="Main navigation">
-        <a href="{{basePath}}/index.html" aria-label="Go to Index">INDEX</a>
-        <a href="{{basePath}}/blog/index.html" aria-label="Go to Feed">FEED</a>
+        <a href="{{basePath}}/blog/index.html" aria-label="Go to Recent Posts">RECENTS</a>
         <a href="{{basePath}}/about.html" aria-label="Go to About">ABOUT</a>
         <a href="{{basePath}}/faq.html" aria-label="Go to FAQ">FAQ</a>
+        <a href="{{basePath}}/index.html" aria-label="Show Menu" class="menu-toggle">INDEX</a>
     </nav>
     <main role="main">
-        <div class="prompt" aria-label="Current directory">CD {{title}}</div>
-        <article>
-            {{content}}
-        </article>
+        {{content}}
     </main>
     <footer role="contentinfo">
         <div class="prompt">ECHO "Type HELP for commands"</div>

@@ -16,27 +16,55 @@
     --line-height: 1.5;
     --spacing-unit: 1rem;
     --title-height: 1.5rem;
+    --title-path: "D:\\Dominic Kennedy\\Users\\Guest\\";
 }
 
+/* Reset body styling */
 body {
     background-color: var(--dos-black);
     color: var(--dos-yellow);
     font-family: "Courier New", Courier, monospace;
-    margin: 0 auto;
-    line-height: var(--line-height);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
-    padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) var(--spacing-unit);
-    border: 2px solid var(--dos-yellow);
     position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
+    overflow-x: hidden;
+    border: 2px solid var(--dos-yellow);
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Top border with title */
+body::before {
+    content: attr(data-page-title);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background-color: var(--dos-black);
+    border-bottom: 2px solid var(--dos-yellow);
+    padding: 0.25rem 1rem;
+    z-index: 1000;
+}
+
+/* Bottom border */
+body:after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-black);
+    border-top: 2px solid var(--dos-yellow);
+    z-index: 1000;
 }
 
 /* Title Bar */
 body:before {
-    content: "D:\\Users\\Hi - DOS Mode";
-    position: absolute;
+    content: var(--title-path) attr(data-page-title);
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -48,12 +76,25 @@ body:before {
     padding: 0 0.5rem;
     font-weight: bold;
     border-bottom: 2px solid var(--dos-border);
+    z-index: 1000;
 }
 
-/* Window Controls (decorative) */
+/* Bottom border */
 body:after {
-    content: "[ _ □ X ]";
-    position: absolute;
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-black);
+    border-top: 2px solid var(--dos-yellow);
+    z-index: 1000;
+}
+
+/* Window Controls */
+.window-controls {
+    position: fixed;
     top: 0;
     right: 0.5rem;
     height: var(--title-height);
@@ -61,6 +102,8 @@ body:after {
     display: flex;
     align-items: center;
     font-weight: bold;
+    z-index: 1001;
+    content: "[ _ □ X ]";
 }
 
 /* Navigation with proper touch targets */
@@ -73,14 +116,20 @@ nav {
     gap: 1rem;
     position: relative;
     padding-left: 3rem;
+    padding-right: 3rem;
+    z-index: 1;
+    margin-top: 0.5rem;
 }
 
 nav:before {
-    content: "C:\\>";
+    content: "D:\\>";
     position: absolute;
     left: 0;
     color: var(--dos-dim);
-    top: calc(var(--min-touch-target) / 4);
+    top: 0;
+    height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -93,9 +142,33 @@ nav a {
     position: relative;
 }
 
+nav a.menu-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--dos-black);
+    z-index: 2;
+    padding-right: 0.5rem;
+}
+
+nav a.menu-toggle:hover,
+nav a.menu-toggle:focus {
+    background-color: var(--dos-yellow);
+}
+
 nav a:before {
     content: ">";
     margin-right: 0.5rem;
+}
+
+nav a.menu-toggle:before {
+    content: "[";
+    margin-right: 0.25rem;
+}
+
+nav a.menu-toggle:after {
+    content: "]";
+    margin-left: 0.25rem;
 }
 
 /* Interactive element feedback */
@@ -110,9 +183,12 @@ a:focus {
 
 /* Content structure */
 main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
     max-width: var(--content-max-width);
     margin: 0;
-    padding: var(--spacing-unit) 0;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
     flex: 1;
     border: none;
 }
@@ -188,9 +264,11 @@ a {
 
 /* Footer styling */
 footer {
+    position: relative;
+    z-index: 1;
     max-width: var(--content-max-width);
     margin: var(--spacing-unit) 0 0;
-    padding: var(--spacing-unit) 0;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
     border-top: 1px solid var(--dos-yellow);
 }
 
@@ -217,11 +295,13 @@ footer .prompt:after {
 @media (max-width: 600px) {
     :root {
         --spacing-unit: 0.75rem;
+        --title-path: "D:\\Dominic K\\...\\Guest\\";
     }
 
     body {
         margin: 0;
-        padding: calc(var(--spacing-unit) / 2);
+        padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) var(--spacing-unit);
+        border-width: 1px;
     }
 
     main {
@@ -230,18 +310,37 @@ footer .prompt:after {
 
     nav {
         flex-direction: column;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    nav:before {
+        top: 0;
+        height: var(--min-touch-target);
     }
 
     nav a {
         padding: calc(var(--min-touch-target) / 3);
+        height: var(--min-touch-target);
+        align-items: center;
     }
 
     body:before {
-        content: "DOS Mode - Mobile";
+        content: "D:\\Dominic K\\...\\Guest\\";
     }
     
     body:after {
         content: "[ X ]";
+    }
+
+    footer {
+        padding: var(--spacing-unit);
+    }
+
+    nav a.menu-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
 
@@ -285,6 +384,7 @@ input:focus, textarea:focus {
 ::-webkit-scrollbar-track {
     background: var(--dos-black);
     border: 1px solid var(--dos-yellow);
+    margin-bottom: calc(var(--title-height) + 4px);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -296,24 +396,29 @@ input:focus, textarea:focus {
 }
 
 /* Optional: Add some scan lines for that CRT feel */
+.scanlines {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 176, 0, 0.02) 2px,
+        rgba(255, 176, 0, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    display: none;
+}
+
 @media (min-width: 601px) {
-    body:after {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 176, 0, 0.02) 2px,
-            rgba(255, 176, 0, 0.02) 4px
-        );
-        pointer-events: none;
-        z-index: 9999;
-        opacity: 0.5;
+    .scanlines {
+        display: block;
     }
 }
 

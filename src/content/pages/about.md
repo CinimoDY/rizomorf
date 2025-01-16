@@ -12,18 +12,20 @@ i enjoy creating tools that make life easier.
 ## drive D:
 What drives D? D is me. A collection of interests and projects:
 
-- music production and sound design
-- creative coding and generative art
+- band practice app
+- visuals/projection mapping
 - user experience design
-- web development
+- sports like mountainbiking
+- Personal Information Management
 
 </section>
 
 <section>
 
 ## current projects
-- This DOS-style website
+- This Website
+- That Pomodor Timer
 - Personal data pod experiments
-- Music production tools
+- Band Session Helper App for iPad
 
 </section>

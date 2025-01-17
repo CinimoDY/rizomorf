@@ -5,6 +5,7 @@ role: UX Designer & Researcher
 timeline: 2022-2023
 overview: A digital platform facilitating meaningful connections between people with and without disabilities, focusing on shared interests and activities rather than limitations.
 tags: uxWork
+permalink: /ux-work/meet-able.html
 ---
 
 # meet.able

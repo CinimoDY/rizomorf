@@ -4,11 +4,12 @@
   "description": "Personal website with DOS theme",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && node scripts/build.js",
+    "build": "npm run clean && eleventy",
     "build:prod": "cross-env NODE_ENV=production npm run build",
-    "serve": "node scripts/serve.js"
+    "serve": "eleventy --serve"
   },
   "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
     "express": "^4.17.1",
     "front-matter": "^4.0.0",
     "fs-extra": "^10.0.0",

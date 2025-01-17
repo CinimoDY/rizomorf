@@ -17,11 +17,24 @@ module.exports = function(eleventyConfig) {
     });
 
     // Pass through copy for static assets
-    eleventyConfig.addPassthroughCopy("src/public/");
+    eleventyConfig.addPassthroughCopy({
+        "src/public/css": "css",
+        "src/public/js": "js",
+        "src/public/index.html": "index.html"
+    });
 
     // Watch targets
     eleventyConfig.addWatchTarget("src/public/css/");
     eleventyConfig.addWatchTarget("src/public/js/");
+
+    // Configure permalinks
+    eleventyConfig.addGlobalData("permalink", (data) => {
+        if (data.page.filePathStem.includes('/content/')) {
+            // Remove '/content' from the path
+            return data.page.filePathStem.replace('/content', '') + '.html';
+        }
+        return data.page.filePathStem + '.html';
+    });
 
     return {
         dir: {

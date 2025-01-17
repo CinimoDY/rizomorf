@@ -98,12 +98,12 @@ body:after {
     top: 0;
     right: 0.5rem;
     height: var(--title-height);
-    color: var(--dos-yellow);
+    color: var(--dos-black);
     display: flex;
     align-items: center;
     font-weight: bold;
     z-index: 1001;
-    content: ".";
+    content: "[guest]";
 }
 
 /* Navigation with proper touch targets */

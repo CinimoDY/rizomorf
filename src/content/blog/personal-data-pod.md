@@ -3,6 +3,7 @@ title: Setting up a Personal Data Pod
 date: 2024-03-20
 tags: solid, pod, personal data
 description: How I set up my personal Solid Pod server
+permalink: /blog/personal-data-pod.html
 ---
 
 <section>

@@ -1,6 +1,8 @@
 ---
-title: faq
+title: FAQ
 description: Frequently asked questions about this site
+layout: base.njk
+permalink: /faq.html
 ---
 
 # frequently asked questions

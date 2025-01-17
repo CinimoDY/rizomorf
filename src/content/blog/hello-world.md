@@ -3,6 +3,7 @@ title: Hello World
 date: 2024-03-20
 tags: first post, introduction
 description: First post introducing the site
+permalink: /blog/hello-world.html
 ---
 
 <section>

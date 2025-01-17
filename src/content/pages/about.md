@@ -1,6 +1,8 @@
 ---
-title: about me
-description: About the author and this site
+title: About
+description: About me and this site
+layout: base.njk
+permalink: /about.html
 ---
 
 # Welcome!

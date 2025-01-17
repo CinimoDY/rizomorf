@@ -7,7 +7,7 @@
     <div class="project-grid">
         {%- for project in collections.uxWork %}
         <div class="project-card">
-            <h3><a href="{{ project.url }}">{{ project.data.title }}</a></h3>
+            <h3><a href="{{ baseUrl }}{{ project.url }}">{{ project.data.title }}</a></h3>
             {% if project.data.overview %}
             <p>{{ project.data.overview }}</p>
             {% endif %}

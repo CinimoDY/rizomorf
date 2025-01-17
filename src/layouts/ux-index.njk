@@ -6,12 +6,14 @@
 
     <div class="project-grid">
         {%- for project in collections.uxWork %}
+        {% if project.data.title != "UX Work" %}
         <div class="project-card">
-            <h3><a href="{{ baseUrl }}{{ project.url | cleanUrl }}">{{ project.data.title }}</a></h3>
+            <h3><a href="{{ baseUrl }}/ux-work/{{ project.fileSlug }}.html">{{ project.data.title }}</a></h3>
             {% if project.data.overview %}
             <p>{{ project.data.overview }}</p>
             {% endif %}
         </div>
+        {% endif %}
         {%- endfor %}
     </div>
 </div>

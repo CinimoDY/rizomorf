@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: base.njk
+permalink: /index.html
 ---
 
 # Welcome to D:\Dominic Kennedy\

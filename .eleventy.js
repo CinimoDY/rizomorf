@@ -19,8 +19,7 @@ module.exports = function(eleventyConfig) {
     // Pass through copy for static assets
     eleventyConfig.addPassthroughCopy({
         "src/public/css": "css",
-        "src/public/js": "js",
-        "src/public/index.html": "index.html"
+        "src/public/js": "js"
     });
 
     // Watch targets
@@ -28,11 +27,13 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addWatchTarget("src/public/js/");
 
     // Configure directory output
-    eleventyConfig.addFilter("cleanUrl", function(url) {
-        if (url.includes('/content/')) {
-            return url.replace('/content', '');
+    eleventyConfig.addGlobalData("permalink", function(data) {
+        // Handle index pages
+        if (data.page.fileSlug === 'index') {
+            return `/${data.page.filePathStem.split('/').slice(-2)[0]}/index.html`;
         }
-        return url;
+        // Handle regular pages
+        return `/${data.page.filePathStem.split('/').slice(-2)[0]}/${data.page.fileSlug}.html`;
     });
 
     return {

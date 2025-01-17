@@ -27,13 +27,12 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addWatchTarget("src/public/css/");
     eleventyConfig.addWatchTarget("src/public/js/");
 
-    // Configure permalinks
-    eleventyConfig.addGlobalData("permalink", (data) => {
-        if (data.page.filePathStem.includes('/content/')) {
-            // Remove '/content' from the path
-            return data.page.filePathStem.replace('/content', '') + '.html';
+    // Configure directory output
+    eleventyConfig.addFilter("cleanUrl", function(url) {
+        if (url.includes('/content/')) {
+            return url.replace('/content', '');
         }
-        return data.page.filePathStem + '.html';
+        return url;
     });
 
     return {

@@ -118,7 +118,7 @@ async function buildBlog() {
   // Update post links to include basePath
   const postsList = blogPosts.map(post => {
     const date = new Date(post.date).toLocaleDateString();
-    return `- ${date} - [${post.title}](${BASE_PATH}/${post.filename})${post.tags ? ` [${post.tags}]` : ''}`;
+    return `- ${date} - [${post.title}](/blog/${post.filename})${post.tags ? ` [${post.tags}]` : ''}`;
   }).join('\n');
   
   html = html.replace('{{blog_posts}}', marked(postsList));
@@ -128,6 +128,7 @@ async function buildBlog() {
     content: html, 
     ...attributes,
     title: attributes.title || 'Blog',
+    basePath: BASE_PATH,
     isInSubfolder: true
   }));
 }
@@ -139,12 +140,10 @@ function applyTemplate(templateName, data) {
   const replaceVariables = (text, isInSubfolder = false) => {
     return text.replace(/\{\{(\w+)\}\}/g, (_, key) => {
       if (key === 'cssPath') {
-        // Add ../ prefix if in a subfolder
         return isInSubfolder ? '../css/style.css' : './css/style.css';
       }
       if (key === 'basePath') {
-        // Add ../ prefix if in a subfolder
-        return isInSubfolder ? '..' : '.';
+        return BASE_PATH;
       }
       return data[key] || '';
     });

@@ -1,10 +1,11 @@
 ---
 title: elektrischer reporter
 layout: ux-project.njk
-role: UX Designer & Content Strategist
-timeline: 2020-2021
-overview: Improving the user experience of a digital journalism platform focused on technology and society, making complex topics more accessible and engaging.
+role: UX Designer
+timeline: 2021-2022
+overview: Improving the user experience of a digital journalism platform focused on technology and society.
 tags: uxWork
+permalink: /ux-work/elektrischer-reporter.html
 ---
 
 # elektrischer reporter

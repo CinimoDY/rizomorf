@@ -1,10 +1,11 @@
 ---
-title: Design Sprint - Loops
+title: Design Sprint: Loops
 layout: ux-project.njk
-role: UX Designer & Sprint Facilitator
-timeline: 2021
-overview: A rapid prototyping project exploring innovative music creation interfaces, focusing on loop-based composition tools for musicians.
+role: UX Designer & Facilitator
+timeline: 2023
+overview: A rapid prototyping project exploring innovative music creation interfaces.
 tags: uxWork
+permalink: /ux-work/design-sprint-loops.html
 ---
 
 # Design Sprint: Loops

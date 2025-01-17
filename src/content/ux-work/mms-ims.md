@@ -1,10 +1,11 @@
 ---
 title: mms IMS
 layout: ux-project.njk
-role: UX Designer & Product Strategist
-timeline: 2021-2022
-overview: Redesigning the inventory management system for improved efficiency and user experience in medical supply chain operations.
+role: UX Designer
+timeline: 2022
+overview: Redesigning the inventory management system for improved efficiency and user experience.
 tags: uxWork
+permalink: /ux-work/mms-ims.html
 ---
 
 # mms IMS (Inventory Management System)

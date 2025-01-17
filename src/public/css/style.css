@@ -98,12 +98,12 @@ body:after {
     top: 0;
     right: 0.5rem;
     height: var(--title-height);
-    color: var(--dos-black);
+    color: var(--dos-yellow);
     display: flex;
     align-items: center;
     font-weight: bold;
     z-index: 1001;
-    content: "[ _ □ X ]";
+    content: ".";
 }
 
 /* Navigation with proper touch targets */

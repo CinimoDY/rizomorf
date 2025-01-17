@@ -1,54 +1,35 @@
 ---
 title: elektrischer reporter
 layout: ux-project.njk
-role: UX Designer
-timeline: 2021-2022
-overview: Improving the user experience of a digital journalism platform focused on technology and society.
+role: Podcast Production
+timeline: 2009-2011
+overview: Documentary series about internet culture and digital change
 tags: uxWork
 permalink: /ux-work/elektrischer-reporter.html
 ---
 
 # elektrischer reporter
 
-## PROJECT OVERVIEW
-A comprehensive UX improvement project for elektrischer reporter, a digital journalism platform that explores the intersection of technology and society. The focus was on making complex topics more accessible while maintaining journalistic depth.
+## Overview
+"Elektrischer Reporter" is a documentary series about internet culture and digital change. Originally developed in 2006 for the german news portal Handelsblatt.com, the series is now produced for the online division of german public television broadcaster ZDF.
 
-## CHALLENGE
-The project addressed several key challenges:
-- Making complex tech topics accessible to general audience
-- Balancing depth with readability
-- Improving content discovery and navigation
-- Integrating multimedia content effectively
-- Maintaining consistent engagement across articles
+Every episode of the series is published under a public license (CC), which permits viewers to download, embed and re-distribute the videos in their own internet sites in original or even modified form. Episodes of "Elektrischer Reporter" can even be downloaded from BitTorrent portals like ThePirateBay.org - legally.
 
-## PROCESS
-### Content Analysis
-- Audited existing content structure
-- Analyzed user reading patterns
-- Reviewed engagement metrics
-- Mapped content relationships
-- Identified key user segments
+Apart from talking heads the internet culture topics are almost pictureless (a massive problem for the coverage of those topics in video formats …). "Elektrischer Reporter" however has found his own special way of presentation: Off comments are accompanied by associative pictures of everyday life or by retro film snippets. Complex contexts are illustrated and explained with funny cartoons. The "electric reporter" himself presents the trendsetting topics as a cool retro style TV host in a drawn black-and-white studio.
 
-### UX Improvements
-- Redesigned article layout
-- Enhanced navigation system
-- Developed content hierarchy
-- Improved multimedia integration
-- Created consistent visual language
+## Project Details
+- **Timeline**: February 2009 - 2011
+- **Client**: Blinkenlichten Produktionen
+- **Role**: Podcast Production
 
-### Implementation
-- Iterative design process
-- A/B testing of layouts
-- User feedback integration
-- Performance optimization
-- Mobile-first approach
+## Responsibilities
+- Camera
+- Interviews
+- Footage Research
+- Post Production
+- Collaboration with 2 Journalists, a narrator, a post production agency and lots of interesting people we interviewed
 
-## OUTCOME
-The redesign achieved:
-- Increased average time on page
-- Improved content discovery
-- Higher engagement with multimedia elements
-- Better mobile reading experience
-- Stronger visual storytelling
-
-[Project details and metrics available upon request] 
+## Tools
+- Internet Archive
+- Adobe Premiere and After Effects
+- Photoshop 

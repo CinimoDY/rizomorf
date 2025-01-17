@@ -31,7 +31,6 @@ What drives D? D is me. A collection of interests and projects:
 - sports like mountainbiking
 - Personal Information Management
 
-
 </section>
 
 <section>
@@ -39,7 +38,7 @@ What drives D? D is me. A collection of interests and projects:
 ## current projects
 - This Website
 - [That Pomodoro Timer](https://cinimody.github.io/Pomodoke/)
-- [Personal data pod](/blog/personal-data-pod)
+- [Personal data pod]({{ baseUrl }}/blog/personal-data-pod.html)
 - Band Session Helper App for iPad
 
 </section>
@@ -63,14 +62,14 @@ What drives D? D is me. A collection of interests and projects:
 
 ## a few inventions and inventive thoughts
 - [The Resting Hand Gesture](https://cinimody.github.io/Pomodoke/)
-Personal Information Management
-On Computer System evolution [recent posts](/blog)
+- Personal Information Management
+- On Computer System evolution [recent posts]({{ baseUrl }}/blog/)
 
 </section>
 
 <section>
 
 ## recent developments
-Check my [recent posts](/blog) for the latest and greatest.
+Check my [recent posts]({{ baseUrl }}/blog/) for the latest and greatest.
 
 </section>

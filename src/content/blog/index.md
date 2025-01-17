@@ -1,6 +1,7 @@
 ---
 title: Blog
 description: Stream of updates, thoughts and experiments
+layout: base.njk
 permalink: /blog/index.html
 ---
 
@@ -9,6 +10,8 @@ permalink: /blog/index.html
 <section>
 
 ## latest entries
-{{blog_posts}}
+{% for post in collections.blog %}
+- {{ post.data.date | formatDate }} - [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html){% if post.data.tags %} [{{ post.data.tags }}]{% endif %}
+{% endfor %}
 
 </section> 

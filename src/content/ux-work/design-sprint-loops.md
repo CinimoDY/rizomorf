@@ -1,5 +1,5 @@
 ---
-title: Design Sprint: Loops
+title: "Design Sprint: Loops"
 layout: ux-project.njk
 role: UX Designer & Facilitator
 timeline: 2023

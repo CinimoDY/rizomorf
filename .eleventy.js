@@ -26,16 +26,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addWatchTarget("src/public/css/");
     eleventyConfig.addWatchTarget("src/public/js/");
 
-    // Configure directory output
-    eleventyConfig.addGlobalData("permalink", function(data) {
-        // Handle index pages
-        if (data.page.fileSlug === 'index') {
-            return `/${data.page.filePathStem.split('/').slice(-2)[0]}/index.html`;
-        }
-        // Handle regular pages
-        return `/${data.page.filePathStem.split('/').slice(-2)[0]}/${data.page.fileSlug}.html`;
-    });
-
     return {
         dir: {
             input: "src",

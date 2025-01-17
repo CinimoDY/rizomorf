@@ -182,7 +182,7 @@ async function buildUXWork() {
 }
 
 function applyTemplate(templateName, data) {
-  const templatePath = path.join(TEMPLATE_DIR, `${templateName}.njk`);
+  const templatePath = path.join(TEMPLATE_DIR, templateName.endsWith('.njk') ? templateName : `${templateName}.njk`);
   const template = fs.readFileSync(templatePath, 'utf-8');
   
   // Helper function to replace template variables

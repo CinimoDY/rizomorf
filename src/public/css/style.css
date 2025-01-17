@@ -179,6 +179,7 @@ a:focus {
     background-color: var(--dos-yellow);
     color: var(--dos-black);
     outline: none;
+    text-decoration: none;
 }
 
 /* Content structure */
@@ -241,7 +242,7 @@ ul li:before {
 /* Links styled as commands */
 a {
     color: var(--dos-yellow);
-    text-decoration: none;
+    text-decoration: underline;
     padding: 0.25rem 0.5rem;
     display: inline-block;
     min-height: calc(var(--min-touch-target) * 0.75);

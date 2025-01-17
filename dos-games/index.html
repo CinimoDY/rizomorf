@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOS Games - DOS Mode</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/title.js"></script>
+</head>
+<body data-page-title="DOS Games">
+    <div class="window-controls">[ _ □ X ]</div>
+    <div class="scanlines"></div>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="/blog/" aria-label="Go to Recent Posts">RECENTS</a>
+        <a href="/ux-work/" aria-label="Go to UX Work">UX WORK</a>
+        <a href="/about.html" aria-label="Go to About">ABOUT</a>
+        <a href="/faq.html" aria-label="Go to FAQ">FAQ</a>
+        <a href="/" aria-label="Show Menu" class="menu-toggle">INDEX</a>
+    </nav>
+
+    
+    <h1>DOS Games</h1>
+<section>
+<h2>Available Games</h2>
+<p>Loading game library...</p>
+<div id="dosbox-container">
+  <canvas id="jsdos"></canvas>
+</div>
+<script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+<script>
+  const dosbox = document.getElementById('jsdos');
+  
+  // Initialize js-dos
+  Dos(dosbox).ready((fs, main) => {
+    // We'll add game loading logic here
+    console.log('DOS emulator ready');
+  });
+</script>
+<style>
+  #dosbox-container {
+    width: 640px;
+    height: 400px;
+    max-width: 100%;
+    margin: 2rem auto;
+    border: 2px solid var(--dos-yellow);
+  }
+  
+  #jsdos {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<h2>Instructions</h2>
+<ol>
+<li>Select a game from the list above</li>
+<li>Click to start the emulator</li>
+<li>Use keyboard controls:
+<ul>
+<li>Arrow keys for movement</li>
+<li>Enter/Space for action</li>
+<li>ESC to exit</li>
+<li>Alt+Enter for fullscreen</li>
+</ul>
+</li>
+</ol>
+<h2>Coming Soon</h2>
+<ul>
+<li>Prince of Persia</li>
+<li>Commander Keen</li>
+<li>Oregon Trail</li>
+<li>Wolfenstein 3D</li>
+</ul>
+<p>Note: All games are provided for educational purposes only.</p>
+</section> 
+    
+
+    <footer>
+        <div class="prompt">D:\>_</div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,62 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<main class="ux-project">
+    <article>
+        <header>
+            <h1>{{ title }}</h1>
+            {% if role %}
+            <div class="meta">ROLE: {{ role }}</div>
+            {% endif %}
+            {% if timeline %}
+            <div class="meta">TIMELINE: {{ timeline }}</div>
+            {% endif %}
+        </header>
+
+        {% if overview %}
+        <section class="overview">
+            <h2>PROJECT OVERVIEW</h2>
+            {{ overview | safe }}
+        </section>
+        {% endif %}
+
+        {% if challenge %}
+        <section class="challenge">
+            <h2>CHALLENGE</h2>
+            {{ challenge | safe }}
+        </section>
+        {% endif %}
+
+        {% if process %}
+        <section class="process">
+            <h2>PROCESS</h2>
+            {{ process | safe }}
+        </section>
+        {% endif %}
+
+        {% if outcome %}
+        <section class="outcome">
+            <h2>OUTCOME</h2>
+            {{ outcome | safe }}
+        </section>
+        {% endif %}
+
+        {{ content | safe }}
+
+        <nav class="project-nav">
+            {% if collections.uxWork %}
+                {% set previousPost = collections.uxWork | getPreviousCollectionItem(page) %}
+                {% set nextPost = collections.uxWork | getNextCollectionItem(page) %}
+                
+                {% if previousPost %}
+                <a href="{{ previousPost.url }}" class="prev">PREV: {{ previousPost.data.title }}</a>
+                {% endif %}
+                
+                {% if nextPost %}
+                <a href="{{ nextPost.url }}" class="next">NEXT: {{ nextPost.data.title }}</a>
+                {% endif %}
+            {% endif %}
+        </nav>
+    </article>
+</main>
+{% endblock %} 

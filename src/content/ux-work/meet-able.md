@@ -20,7 +20,7 @@ permalink: /ux-work/meet-able.html
 ## Overview
 meet.able is a concept for an interactive table to connect the digital and physical worlds at meetings. It demonstrates what devices like this should be capable of doing and how they can increase effectiveness at meetings while also being fun to use. This project was my bachelor thesis. My supervisors were Prof. Dr.-Ing. Dr. Thomas Ritz and Dipl. Des. Tim Bruysten.
 
-{% image "path/to/jeff-han-ted", "Jeff Han's TED presentation about DIY multitouch tabletop computing" %}
+![Jeff Han's TED presentation about DIY multitouch tabletop computing](/images/ux-work/meet-able/jeff-han-ted.jpg)
 
 My creative process was motivated by Jeff Han's TED presentation about DIY multitouch tabletop computing.
 
@@ -45,7 +45,7 @@ The scope of the project was wide before I began. In order to come up with a fea
 
 ## Design Process
 ### Methodology
-{% image "path/to/methodology-diagram", "Methodology diagram showing the design process" %}
+![Methodology diagram showing the design process](/images/ux-work/meet-able/design-process.png)
 
 The development of the design concept is in essence a meshing of the users' needs with the most appropriate technologies available. Much has been written on the theoretical aspects of what makes a good user interface. These aspects, where applicable, are also included in the design concept.
 
@@ -58,25 +58,25 @@ Finally, the ideas presented in this case study, together with possible further 
 ### Research
 After much theoretical research into Human Computer Interaction Design I made an attempt to sort things out. To get an overview of all the issues involved I created a Mind Map:
 
-{% image "path/to/mind-map", "Mind Map of HCI design concepts" %}
+![Mind Map of HCI design concepts](/images/ux-work/meet-able/mindmap.png)
 
 ...and a Problems vs Options-Diagram:
 
-{% image "/images/ux-work/meet-able/proboptiondiagram.png", "Problems vs Options diagram" %}
+![Problems vs Options diagram](/images/ux-work/meet-able/proboptiondiagram.png)
 
 One thing became clear: Work on this chart could go on forever. The technological possibilities are vast and the pace at which new ones become available in this age of exponential acceleration is too rapid to keep updating the chart.
 
 ### Field Research
 In order to find out how design team meetings work and what kind of problems people have in discussing ideas and concepts around a table, I did some field research. I went to observe a meeting at Kada-Wittfeld, an architecture agency in Aachen, to understand better what processes are important. I paid particular attention to the actors positions around the table and their interactions with the table surface, space allocation and other objects used in the meeting.
 
-{% image "path/to/meeting-notes", "Notes from the design team meeting" %}
+![Notes from the design team meeting](/images/ux-work/meet-able/meeting-notes.png)
 
 I saw that new creative ideas are seldom generated during meetings. More commonly, I learned, they arise in less formal contexts. Meetings are for presenting and discussing ideas and coordinating group activities. The meet.able is conceived to facilitate such tasks.
 
 Meet.able supports all the most significant user behaviours observed during meetings. These include flexible switching between single and multi-user working spaces, the ubiquitous use of pencil and paper (even when the paper is digital), and the exchange of planning data for future events, calendar entries and milestones.
 
 ## Innovation: The Resting Hand Gesture
-{% image "path/to/resting-hand", "Demonstration of the Resting Hand Gesture interface" %}
+![Demonstration of the Resting Hand Gesture interface](/images/ux-work/meet-able/resting-hand.png)
 
 As a user-friendly interface that does not disrupt social interaction, I introduced the 'Resting Hand Gesture', which serves as a central starting point for each user. You simply to lay your hand flat on the screen to invoke an array of command menu buttons at your finger tips.
 
@@ -84,18 +84,22 @@ Note: I have found no reference predating my publication at dominickennedy.de/ba
 
 I considered patenting it, but 2000 Euros for a patent that just covered Europe was too expensive for me at that time. In retrospect, I think I should have patented it, as a designer working for Adobe took up the RHG idea and adapted it for hand-held tablets in Adobe Eazel.
 
-{% video "path/to/concept-video", "Meet.able concept video demonstration" %}
+<div class="video-wrapper">
+  <iframe src="path/to/concept-video" title="Meet.able concept video demonstration" frameborder="0" allowfullscreen></iframe>
+</div>
 
 I also made a few mini videos showcasing specific interactions:
 
-{% video "path/to/business-card-demo", "Scanning a paper business card demo" %}
+<div class="video-wrapper">
+  <iframe src="path/to/business-card-demo" title="Scanning a paper business card demo" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Feedback
 I used the feedback from the UX community as a basic means of evaluating the concept. The video only portrays the most significant features of the table. A more comprehensive description was be published in my bachelor thesis in February 2009.
 
 I posted a note on my thesis in the NUI group forums. It didn't take long before feedback started coming in. Fubiz, a design blog from France published an article about meet.able. Others, from all over the world copied the article and brought further attention to my project. Special thanks go to Elizabeth Bacon, Christopher Moore, KevinNuut.com, Martin Polley and Jonathan Brill from 'Point and Do' for giving their professional feedback and opinions. I greatly appreciate it.
 
-{% image "path/to/feedback-map", "Map showing global interest in the project" %}
+![Map showing global interest in the project](/images/ux-work/meet-able/feedback-map.png)
 
 ## Retrospective
 This is still one the projects I am most proud of. It was a deep dive into HCI and design thinking. I learned so much by reading a lot of UI literature, learning about modes, modality, Fitt's law, tabletop territoriality, touch gestures and many other topics. It was something I very much enjoyed: Conducting my first user research; observing and synthesising, choosing the most pressing issues and conceptualising solutions. This is what I want to do more of. In retrospect the production of the video took too long and was not exactly rapid prototyping. Today I would opt for a more rapid method: A Wizard-of-Oz scenario of sorts, maybe. I was using a version of lean research back in 2009, 7 years before I hosted, as a student volunteer with the german UPA, a workshop on lean research by Tomer Sharon of WeWork.

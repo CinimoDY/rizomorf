@@ -1,17 +1,17 @@
 ---
-title: Blog
+title: feed
 description: Stream of updates, thoughts and experiments
 layout: base.njk
 permalink: /blog/index.html
 ---
 
-# stream/feed/timeline
+# feed
 
 <section>
 
-## latest entries
+## entries
 {% for post in collections.blog %}
-- {{ post.data.date | formatDate }} - [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html){% if post.data.tags %} [{{ post.data.tags }}]{% endif %}
+- {{ post.data.date | formatDate }} - [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html)
 {% endfor %}
 
 </section> 

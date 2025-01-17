@@ -1,21 +1,18 @@
 ---
-title: Home
+title: Index
 layout: base.njk
 permalink: /index.html
 ---
 
-# Welcome to D:\Dominic Kennedy\
+Welcome to D:\Dominic Kennedy\
 
-Select a directory to explore:
+[RECENTS]({{ baseUrl }}/blog/)
 
-## Recent Updates
-Check out my latest thoughts and projects in [RECENTS]({{ baseUrl }}/blog/)
+[ABOUT]({{ baseUrl }}/about.html)
 
-## About Me
-Learn more about who I am and what I do in [ABOUT]({{ baseUrl }}/about.html)
+[FAQ]({{ baseUrl }}/faq.html) 
 
-## UX Work
-Explore my UX design projects in [UX WORK]({{ baseUrl }}/ux-work/)
+[UX WORK]({{ baseUrl }}/ux-work/)
 
-## Questions?
-Find answers in the [FAQ]({{ baseUrl }}/faq.html) 
+[DOS GAMES]({{ baseUrl }}/dos-games/)
+

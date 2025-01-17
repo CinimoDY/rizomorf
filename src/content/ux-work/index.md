@@ -10,15 +10,4 @@ tags: uxWork
 
 Welcome to my UX portfolio.
 
-## Featured Projects
-
-### meet.able
-
-
-### mms IMS
-
-
-### Design Sprint: Loops
-
-
-### elektrischer reporter
+## Projects

@@ -22,8 +22,10 @@ permalink: /dos-games/index.html
   const loadingMessage = document.getElementById('loading-message');
   let ci = null;
   
-  // Initialize js-dos
-  Dos(dosbox).ready((fs, main) => {
+  // Initialize js-dos with basic configuration
+  Dos(dosbox, {
+    wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js"
+  }).ready((fs, main) => {
     console.log('DOS emulator ready');
   });
 
@@ -35,20 +37,17 @@ permalink: /dos-games/index.html
     }
     
     try {
+      // Create new DOS instance with minimal config
       ci = await Dos(dosbox, { 
-        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
-        cycles: "auto",
-        autolock: false,
-        sound: true,
-        canvas: dosbox,
-        logging: true
+        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js"
       });
       
       // Mount the game directory
       await ci.mount('games');
       
-      // Run the game
-      await ci.run('spacewar/SPACEWAR.EXE');
+      // Run the game with basic options
+      await ci.run(["-c", "mount c .", "-c", "c:", "-c", `cd spacewar`, "-c", "SPACEWAR.EXE"]);
+      
       loadingMessage.style.display = 'none';
     } catch (e) {
       console.error("Game loading failed:", e);

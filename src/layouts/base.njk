@@ -3,9 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baseUrl" content="{{ baseUrl }}">
     <title>{{ title }} - DOS Mode</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script defer src="/js/title.js"></script>
+    <link rel="stylesheet" href="{{ baseUrl }}/css/style.css">
+    <script defer src="{{ baseUrl }}/js/title.js"></script>
+    <script defer src="{{ baseUrl }}/js/search.js"></script>
+    <script defer src="{{ baseUrl }}/js/dos-prompt.js"></script>
+    <style>
+        /* Main content wrapper */
+        .content-wrapper {
+            min-height: calc(100vh - 300px); /* Adjusted for both prompts */
+            padding-bottom: 2rem;
+            margin-top: calc(var(--title-height) + var(--min-touch-target)); /* Space for fixed nav */
+        }
+
+        /* Sticky navigation */
+        nav {
+            position: fixed;
+            top: var(--title-height);
+            left: 0;
+            right: 0;
+            background: var(--dos-black);
+            padding: 0.5rem 3rem;
+            z-index: 1001;
+            border-bottom: 2px solid var(--dos-yellow);
+        }
+
+        /* Sticky DOS prompt */
+        #dos-prompt {
+            position: sticky;
+            bottom: 200px; /* Adjust based on ConvertKit form height */
+            width: 100%;
+            background: var(--dos-black);
+            border-top: 2px solid var(--dos-yellow);
+            padding: 1rem;
+            z-index: 999;
+        }
+
+        /* Sticky footer with form */
+        .sticky-footer {
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            background: var(--dos-black);
+            border-top: 2px solid var(--dos-yellow);
+            padding: 1rem 0;
+            z-index: 998;
+        }
+
+        /* Window controls */
+        .window-controls {
+            z-index: 1002;
+        }
+
+        /* DOS-style form customization */
+        .formkit-form {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: none !important;
+            font-family: 'DOS', monospace !important;
+            padding: 1rem !important;
+            margin: 0 !important;
+        }
+        .formkit-form * {
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form button,
+        .formkit-form [data-element="submit"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+            text-transform: uppercase !important;
+        }
+        .formkit-form button:hover,
+        .formkit-form [data-element="submit"]:hover {
+            background: var(--dos-yellow) !important;
+            color: var(--dos-black) !important;
+        }
+        .formkit-form input,
+        .formkit-form [data-element="field"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form .formkit-alert {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+        }
+        .formkit-form .formkit-guarantee {
+            color: var(--dos-yellow) !important;
+        }
+        #convertkit-form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+    </style>
+    <script>
+        // Ensure page loads at the top
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+        // Also handle navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
 </head>
 <body data-page-title="{{ title }}">
     <div class="window-controls">[ _ □ X ]</div>
@@ -19,12 +125,23 @@
         <a href="{{ baseUrl }}/" aria-label="Show Menu" class="menu-toggle">INDEX</a>
     </nav>
 
-    {% block content %}
-    {{ content | safe }}
-    {% endblock %}
+    <div class="content-wrapper">
+        {% block content %}
+        {{ content | safe }}
+        {% endblock %}
+    </div>
 
+    <!-- DOS Prompt will be inserted here by JavaScript -->
+    <div id="dos-prompt"></div>
+    
+    <!-- ConvertKit Form -->
+    <div class="sticky-footer">
+        <script async data-uid="bd10f8c849" src="https://dominickennedy.kit.com/bd10f8c849/index.js"></script>
+        <div id="convertkit-form-container"></div>
+    </div>
+    
     <footer>
-        <div class="prompt">D:\>_</div>
+        <!-- Removed decorative prompt -->
     </footer>
 </body>
 </html> 

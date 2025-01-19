@@ -1,18 +1,19 @@
 ---
-title: DOS Games
+title: SPACEWAR (DOS GAME)
 layout: base.njk
 permalink: /dos-games/index.html
 ---
 
-# DOS Games
+# SPACEWAR (DOS GAME)
 
 <section>
 
-## Available Games
+## About
+> A classic space combat game where two players battle in a gravity field. This browser version is adapted from the original DOS game for modern devices including mobile.
 
-### Spacewar
-> A classic space combat game where two players battle in a gravity field
-[LAUNCH SPACEWAR]({{ baseUrl }}/games/spacewar/index.html)
+```
+C:\>LAUNCH SPACEWAR.EXE
+```
 
 <div id="dosbox-container">
   <canvas id="jsdos"></canvas>
@@ -21,18 +22,22 @@ permalink: /dos-games/index.html
 <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
 <script>
   const dosbox = document.getElementById('jsdos');
+  const container = document.getElementById('dosbox-container');
   
   // Initialize js-dos
   Dos(dosbox).ready((fs, main) => {
     // Load Spacewar when clicked
-    document.querySelector('a[href*="spacewar"]').addEventListener('click', async (e) => {
+    document.querySelector('pre').addEventListener('click', async (e) => {
       e.preventDefault();
+      container.style.display = 'block';
+      document.querySelector('pre').style.color = 'var(--dos-green)';
       try {
-        await fs.createFile("spacewar.zip", await fetch("{{ baseUrl }}/games/spacewar/spacewar.zip"));
-        main(["-c", "cd spacewar", "-c", "spacewar.exe"]);
+        await fs.createFile("SPACEWAR.EXE", await fetch("{{ baseUrl }}/games/spacewar/SPACEWAR.EXE"));
+        main(["-c", "SPACEWAR.EXE"]);
       } catch (error) {
         console.error('Error loading game:', error);
         alert('Error loading game. Please try again.');
+        document.querySelector('pre').style.color = 'var(--dos-yellow)';
       }
     });
   });
@@ -52,24 +57,26 @@ permalink: /dos-games/index.html
     width: 100%;
     height: 100%;
   }
-  
-  #dosbox-container.active {
-    display: block;
+
+  pre {
+    cursor: pointer;
+    color: var(--dos-yellow);
+    margin: 1rem 0;
+  }
+
+  pre:hover {
+    color: var(--dos-green);
   }
 </style>
 
-## Instructions
-1. Click the LAUNCH button above to start the game
+## How to Play
+1. Click the command above to start the game
 2. Use keyboard controls:
    - Arrow keys for movement
    - Space to fire
    - ESC to exit
    - Alt+Enter for fullscreen
 
-## Coming Soon
-- Commander Keen
-- Oregon Trail
-- Wolfenstein 3D
+For mobile devices, touch controls will appear on screen.
 
-Note: All games are provided for educational purposes only.
 </section> 

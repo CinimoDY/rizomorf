@@ -3,6 +3,7 @@ title: hello world
 date: 2024-03-20
 tags: first post, introduction
 description: First post introducing the site
+layout: base.njk
 permalink: /blog/hello-world.html
 ---
 

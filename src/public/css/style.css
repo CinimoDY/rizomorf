@@ -428,4 +428,44 @@ article section:not(:last-child) {
     margin-bottom: var(--spacing-unit);
     padding-bottom: var(--spacing-unit);
     border-bottom: 1px solid var(--dos-yellow);
+}
+
+/* DOS Prompt Styles */
+#dos-prompt {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-family: 'DOS', monospace;
+}
+
+.prompt-line {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.prompt-text {
+    color: var(--dos-yellow);
+    margin-right: 0.5rem;
+}
+
+.prompt-input,
+.search-input {
+    background: var(--dos-black);
+    color: var(--dos-yellow);
+    border: none;
+    font-family: 'DOS', monospace;
+    font-size: 1rem;
+    flex-grow: 1;
+    outline: none;
+}
+
+.prompt-output {
+    color: var(--dos-yellow);
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+}
+
+.prompt-output .search-input {
+    display: block;
+    margin-top: 0.5rem;
 } 

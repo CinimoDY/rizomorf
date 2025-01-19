@@ -3,6 +3,7 @@ title: Coding with AI
 date: 2024-01-19
 tags: ai, coding, learning
 description: Learning to code with AI assistance
+layout: base.njk
 permalink: /blog/coding-with-ai.html
 ---
 

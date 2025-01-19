@@ -19,19 +19,67 @@ module.exports = function(eleventyConfig) {
             });
     });
 
-    // Add blog collection with file dates
+    // Add blog collection with file last modified dates
     eleventyConfig.addCollection("blog", function(collectionApi) {
         return collectionApi.getFilteredByGlob("src/content/blog/**/*.md")
             .filter(post => post.data.title !== "Blog" && post.data.title !== "feed")
             .map(post => {
-                // Use frontmatter date if available, otherwise use file creation date
-                if (!post.data.date) {
-                    const stats = fs.statSync(post.inputPath);
-                    post.data.date = stats.birthtime;
-                }
+                // Always use file's last modified date
+                const stats = fs.statSync(post.inputPath);
+                post.data.date = stats.mtime; // Use mtime (modified time) instead of birthtime
                 return post;
             })
-            .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+            .sort((a, b) => b.data.date - a.data.date); // Sort by date in descending order
+    });
+
+    // Generate search index
+    eleventyConfig.addCollection("searchIndex", async function(collectionApi) {
+        const searchIndex = [];
+        
+        // Add blog posts
+        const blogPosts = collectionApi.getFilteredByGlob("src/content/blog/**/*.md");
+        for (const post of blogPosts) {
+            if (post.data.title !== "Blog" && post.data.title !== "feed") {
+                const content = await fs.promises.readFile(post.inputPath, 'utf8');
+                searchIndex.push({
+                    title: post.data.title,
+                    content: content,
+                    url: `${baseUrl}/blog/${post.fileSlug}.html`,
+                    type: 'blog'
+                });
+            }
+        }
+
+        // Add UX work
+        const uxWork = collectionApi.getFilteredByGlob("src/content/ux-work/**/*.md");
+        for (const work of uxWork) {
+            const content = await fs.promises.readFile(work.inputPath, 'utf8');
+            searchIndex.push({
+                title: work.data.title,
+                content: content,
+                url: `${baseUrl}/ux-work/${work.fileSlug}.html`,
+                type: 'ux-work'
+            });
+        }
+
+        // Add pages
+        const pages = collectionApi.getFilteredByGlob("src/content/pages/**/*.md");
+        for (const page of pages) {
+            const content = await fs.promises.readFile(page.inputPath, 'utf8');
+            searchIndex.push({
+                title: page.data.title,
+                content: content,
+                url: `${baseUrl}/${page.fileSlug}.html`,
+                type: 'page'
+            });
+        }
+
+        // Write search index to JSON file
+        const outputPath = path.join(__dirname, 'dist', 'search-index.json');
+        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+        fs.writeFileSync(outputPath, JSON.stringify(searchIndex));
+
+        return searchIndex;
     });
 
     // Pass through copy for static assets

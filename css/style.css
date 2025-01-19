@@ -1,0 +1,52 @@
+/* ConvertKit Form Styling */
+#convertkit-form-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    font-family: 'DOS', 'Courier New', monospace;
+}
+
+/* Form fields */
+.formkit-form[data-uid] input[type="text"],
+.formkit-form[data-uid] input[type="email"] {
+    background-color: #000 !important;
+    border: 1px solid #00ff00 !important;
+    color: #00ff00 !important;
+    font-family: 'DOS', 'Courier New', monospace !important;
+    padding: 8px !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Submit button */
+.formkit-form[data-uid] .formkit-submit {
+    background: #000 !important;
+    border: 1px solid #00ff00 !important;
+    color: #00ff00 !important;
+    font-family: 'DOS', 'Courier New', monospace !important;
+    cursor: pointer !important;
+    padding: 8px 16px !important;
+}
+
+.formkit-form[data-uid] .formkit-submit:hover {
+    background: #00ff00 !important;
+    color: #000 !important;
+}
+
+/* Form labels and text */
+.formkit-form[data-uid] {
+    color: #00ff00 !important;
+    font-family: 'DOS', 'Courier New', monospace !important;
+}
+
+/* Remove ConvertKit branding */
+.formkit-powered-by-convertkit-container {
+    display: none !important;
+}
+
+/* Error messages */
+.formkit-alert {
+    color: #ff0000 !important;
+    font-family: 'DOS', 'Courier New', monospace !important;
+    margin-top: 0.5rem !important;
+} 

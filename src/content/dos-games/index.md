@@ -13,46 +13,47 @@ permalink: /dos-games/index.html
 
 <div id="dosbox-container">
   <canvas id="jsdos"></canvas>
-  <div id="loading-message" style="display: none;">Loading game...</div>
+  <div id="loading-message">Loading emulator...</div>
+  <div id="status-message"></div>
 </div>
 
 <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
 <script>
   const dosbox = document.getElementById('jsdos');
   const loadingMessage = document.getElementById('loading-message');
+  const statusMessage = document.getElementById('status-message');
   let ci = null;
   
   // Initialize js-dos with basic configuration
-  Dos(dosbox, {
+  const dos = Dos(dosbox, {
     wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js"
-  }).ready((fs, main) => {
-    console.log('DOS emulator ready');
+  });
+
+  dos.ready((fs, main) => {
+    loadingMessage.style.display = 'none';
+    statusMessage.textContent = 'Click Space War to start';
   });
 
   async function loadGame(game) {
-    loadingMessage.style.display = 'block';
+    statusMessage.textContent = 'Loading game...';
     
     if (ci) {
       await ci.exit();
     }
     
     try {
-      // Create new DOS instance with minimal config
-      ci = await Dos(dosbox, { 
-        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js"
-      });
+      ci = await dos;
       
       // Mount the game directory
       await ci.mount('games');
       
-      // Run the game with basic options
-      await ci.run(["-c", "mount c .", "-c", "c:", "-c", `cd spacewar`, "-c", "SPACEWAR.EXE"]);
+      // Run the game
+      await ci.run('spacewar/SPACEWAR.EXE');
       
-      loadingMessage.style.display = 'none';
+      statusMessage.textContent = 'Game loaded!';
     } catch (e) {
       console.error("Game loading failed:", e);
-      alert("Failed to load game. Please try again.");
-      loadingMessage.style.display = 'none';
+      statusMessage.textContent = 'Failed to load game. Please try again.';
     }
   }
 </script>
@@ -65,32 +66,42 @@ permalink: /dos-games/index.html
     margin: 2rem auto;
     border: 2px solid var(--dos-yellow);
     position: relative;
+    background-color: var(--dos-black);
   }
   
   #jsdos {
     width: 100%;
     height: 100%;
-    background: #000;
+    background-color: var(--dos-black);
   }
 
-  #loading-message {
+  #loading-message,
+  #status-message {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--dos-yellow);
-    font-family: 'DOS', monospace;
+    font-family: "Courier New", monospace;
     text-transform: uppercase;
+    background-color: var(--dos-black);
+    padding: 1rem;
+    border: 1px solid var(--dos-yellow);
   }
 
   .game-link {
     color: var(--dos-yellow);
     text-decoration: underline;
     cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--dos-yellow);
+    margin: 1rem 0;
   }
 
   .game-link:hover {
-    color: var(--dos-white);
+    background-color: var(--dos-yellow);
+    color: var(--dos-black);
   }
 </style>
 

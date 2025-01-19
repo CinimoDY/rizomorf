@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOS Games - DOS Mode</title>
-    <link rel="stylesheet" href="/rizomorf/css/style.css">
-    <script defer src="/rizomorf/js/title.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/title.js"></script>
 </head>
 <body data-page-title="DOS Games">
     <div class="window-controls">[ _ □ X ]</div>
@@ -23,53 +23,32 @@
     <h1>DOS Games</h1>
 <section>
 <h2>Available Games</h2>
-<ul>
-<li>[Space War](javascript:loadGame('spacewar'))</li>
-</ul>
+<h3>Spacewar</h3>
+<blockquote>
+<p>A classic space combat game where two players battle in a gravity field
+<a href="/rizomorf/games/spacewar/index.html">LAUNCH SPACEWAR</a></p>
+</blockquote>
 <div id="dosbox-container">
   <canvas id="jsdos"></canvas>
-  <div id="loading-message">Loading emulator...</div>
-  <div id="status-message"></div>
 </div>
 <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
 <script>
   const dosbox = document.getElementById('jsdos');
-  const loadingMessage = document.getElementById('loading-message');
-  const statusMessage = document.getElementById('status-message');
-  let ci = null;
   
-  // Initialize js-dos with basic configuration
-  const dos = Dos(dosbox, {
-    wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js"
+  // Initialize js-dos
+  Dos(dosbox).ready((fs, main) => {
+    // Load Spacewar when clicked
+    document.querySelector('a[href*="spacewar"]').addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await fs.createFile("spacewar.zip", await fetch("/rizomorf/games/spacewar/spacewar.zip"));
+        main(["-c", "cd spacewar", "-c", "spacewar.exe"]);
+      } catch (error) {
+        console.error('Error loading game:', error);
+        alert('Error loading game. Please try again.');
+      }
+    });
   });
-
-  dos.ready((fs, main) => {
-    loadingMessage.style.display = 'none';
-    statusMessage.textContent = 'Click Space War to start';
-  });
-
-  async function loadGame(game) {
-    statusMessage.textContent = 'Loading game...';
-    
-    if (ci) {
-      await ci.exit();
-    }
-    
-    try {
-      ci = await dos;
-      
-      // Mount the game directory
-      await ci.mount('games');
-      
-      // Run the game
-      await ci.run('spacewar/SPACEWAR.EXE');
-      
-      statusMessage.textContent = 'Game loaded!';
-    } catch (e) {
-      console.error("Game loading failed:", e);
-      statusMessage.textContent = 'Failed to load game. Please try again.';
-    }
-  }
 </script>
 <style>
   #dosbox-container {
@@ -78,61 +57,37 @@
     max-width: 100%;
     margin: 2rem auto;
     border: 2px solid var(--dos-yellow);
-    position: relative;
-    background-color: var(--dos-black);
+    display: none;
   }
   
   #jsdos {
     width: 100%;
     height: 100%;
-    background-color: var(--dos-black);
   }
-
-  #loading-message,
-  #status-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--dos-yellow);
-    font-family: "Courier New", monospace;
-    text-transform: uppercase;
-    background-color: var(--dos-black);
-    padding: 1rem;
-    border: 1px solid var(--dos-yellow);
-  }
-
-  .game-link {
-    color: var(--dos-yellow);
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--dos-yellow);
-    margin: 1rem 0;
-  }
-
-  .game-link:hover {
-    background-color: var(--dos-yellow);
-    color: var(--dos-black);
+  
+  #dosbox-container.active {
+    display: block;
   }
 </style>
 <h2>Instructions</h2>
 <ol>
-<li>Click on &quot;Space War&quot; above to start the game</li>
+<li>Click the LAUNCH button above to start the game</li>
 <li>Use keyboard controls:
 <ul>
 <li>Arrow keys for movement</li>
-<li>Space for shooting</li>
+<li>Space to fire</li>
 <li>ESC to exit</li>
 <li>Alt+Enter for fullscreen</li>
-<li>Ctrl+F11/F12 to adjust speed</li>
 </ul>
 </li>
 </ol>
-<h2>About Space War</h2>
-<p>Space War is a classic DOS game based on the original 1962 Spacewar! created at MIT. Two players control spaceships that fire missiles at each other while dealing with the gravitational pull of a central star. The game features simple but engaging gameplay that captures the essence of early computer gaming.</p>
-<p>Note: This game is provided for educational purposes only.</p>
+<h2>Coming Soon</h2>
+<ul>
+<li>Commander Keen</li>
+<li>Oregon Trail</li>
+<li>Wolfenstein 3D</li>
+</ul>
+<p>Note: All games are provided for educational purposes only.</p>
 </section> 
     
 

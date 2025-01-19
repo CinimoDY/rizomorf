@@ -11,7 +11,7 @@ permalink: /blog/index.html
 
 ## entries
 {% for post in collections.blog %}
-- {{ post.data.date | formatDate }} - [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html)
+> {{ post.data.date | formatDate }} [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html)
 {% endfor %}
 
 </section> 

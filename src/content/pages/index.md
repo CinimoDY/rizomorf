@@ -27,6 +27,15 @@ C:\>_
 
 </section>
 
+<section>
+
+## newsletter signup
+<div id="convertkit-form-container">
+    <script async data-uid="bd10f8c849" src="https://dominickennedy.kit.com/bd10f8c849/index.js"></script>
+</div>
+
+</section>
+
 <style>
 .dos-directory pre {
     margin: 2rem 0;

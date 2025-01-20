@@ -12,9 +12,9 @@
     <style>
         /* Main content wrapper */
         .content-wrapper {
-            min-height: calc(100vh - 300px); /* Adjusted for both prompts */
+            min-height: calc(100vh - 100px); /* Reduced height since we removed newsletter */
             padding-bottom: 2rem;
-            margin-top: calc(var(--title-height) + var(--min-touch-target)); /* Space for fixed nav */
+            margin-top: calc(var(--title-height) + var(--min-touch-target));
         }
 
         /* Sticky navigation */
@@ -26,34 +26,37 @@
             background: var(--dos-black);
             padding: 0.5rem 3rem;
             z-index: 1001;
-            border-bottom: 2px solid var(--dos-yellow);
         }
 
         /* Sticky DOS prompt */
         #dos-prompt {
-            position: sticky;
-            bottom: 200px; /* Adjust based on ConvertKit form height */
-            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
             background: var(--dos-black);
             border-top: 2px solid var(--dos-yellow);
             padding: 1rem;
             z-index: 999;
         }
 
-        /* Sticky footer with form */
+        /* Remove sticky footer since newsletter moved to index */
         .sticky-footer {
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-            background: var(--dos-black);
-            border-top: 2px solid var(--dos-yellow);
-            padding: 1rem 0;
-            z-index: 998;
+            display: none;
         }
 
         /* Window controls */
         .window-controls {
-            z-index: 1002;
+            content: "[guest]";
+            position: fixed;
+            top: 0;
+            right: 0.5rem;
+            height: var(--title-height);
+            color: var(--dos-black);
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            z-index: 1001;
         }
 
         /* DOS-style form customization */
@@ -101,6 +104,39 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
+
+        /* Remove decorative prompt */
+        nav:before {
+            content: none;
+        }
+
+        /* Mobile navigation adjustments */
+        @media (max-width: 600px) {
+            nav {
+                display: none; /* Hide by default on mobile */
+                position: fixed;
+                top: var(--title-height);
+                left: 0;
+                right: 0;
+                background: var(--dos-black);
+                border-bottom: 2px solid var(--dos-yellow);
+                padding: 1rem;
+                z-index: 1000;
+            }
+
+            nav.show {
+                display: block;
+            }
+
+            /* Remove extra border on mobile */
+            body {
+                border: none;
+            }
+
+            .menu-toggle {
+                display: block !important;
+            }
+        }
     </style>
     <script>
         // Ensure page loads at the top
@@ -110,6 +146,17 @@
         // Also handle navigation
         document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo(0, 0);
+        });
+
+        // Toggle mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle?.addEventListener('click', function(e) {
+                e.preventDefault();
+                nav.classList.toggle('show');
+            });
         });
     </script>
 </head>
@@ -131,17 +178,11 @@
         {% endblock %}
     </div>
 
-    <!-- DOS Prompt will be inserted here by JavaScript -->
+    <!-- DOS Prompt -->
     <div id="dos-prompt"></div>
     
-    <!-- ConvertKit Form -->
-    <div class="sticky-footer">
-        <script async data-uid="bd10f8c849" src="https://dominickennedy.kit.com/bd10f8c849/index.js"></script>
-        <div id="convertkit-form-container"></div>
-    </div>
-    
     <footer>
-        <!-- Removed decorative prompt -->
+        <!-- Empty footer -->
     </footer>
 </body>
 </html> 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baseUrl" content="/rizomorf">
+    <title>mms Intelligent Media System - DOS Mode</title>
+    <link rel="stylesheet" href="/rizomorf/css/style.css">
+    <script defer src="/rizomorf/js/title.js"></script>
+    <script defer src="/rizomorf/js/search.js"></script>
+    <script defer src="/rizomorf/js/dos-prompt.js"></script>
+    <style>
+        /* Main content wrapper */
+        .content-wrapper {
+            min-height: calc(100vh - 100px); /* Reduced height since we removed newsletter */
+            padding-bottom: 2rem;
+            margin-top: calc(var(--title-height) + var(--min-touch-target));
+        }
+
+        /* Sticky navigation */
+        nav {
+            position: fixed;
+            top: var(--title-height);
+            left: 0;
+            right: 0;
+            background: var(--dos-black);
+            padding: 0.5rem 3rem;
+            z-index: 1001;
+        }
+
+        /* Sticky DOS prompt */
+        #dos-prompt {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dos-black);
+            border-top: 2px solid var(--dos-yellow);
+            padding: 1rem;
+            z-index: 999;
+        }
+
+        /* Remove sticky footer since newsletter moved to index */
+        .sticky-footer {
+            display: none;
+        }
+
+        /* Window controls */
+        .window-controls {
+            content: "[guest]";
+            position: fixed;
+            top: 0;
+            right: 0.5rem;
+            height: var(--title-height);
+            color: var(--dos-black);
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        /* DOS-style form customization */
+        .formkit-form {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: none !important;
+            font-family: 'DOS', monospace !important;
+            padding: 1rem !important;
+            margin: 0 !important;
+        }
+        .formkit-form * {
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form button,
+        .formkit-form [data-element="submit"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+            text-transform: uppercase !important;
+        }
+        .formkit-form button:hover,
+        .formkit-form [data-element="submit"]:hover {
+            background: var(--dos-yellow) !important;
+            color: var(--dos-black) !important;
+        }
+        .formkit-form input,
+        .formkit-form [data-element="field"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form .formkit-alert {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+        }
+        .formkit-form .formkit-guarantee {
+            color: var(--dos-yellow) !important;
+        }
+        #convertkit-form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Remove decorative prompt */
+        nav:before {
+            content: none;
+        }
+
+        /* Mobile navigation adjustments */
+        @media (max-width: 600px) {
+            nav {
+                display: none; /* Hide by default on mobile */
+                position: fixed;
+                top: var(--title-height);
+                left: 0;
+                right: 0;
+                background: var(--dos-black);
+                border-bottom: 2px solid var(--dos-yellow);
+                padding: 1rem;
+                z-index: 1000;
+            }
+
+            nav.show {
+                display: block;
+            }
+
+            /* Remove extra border on mobile */
+            body {
+                border: none;
+            }
+
+            .menu-toggle {
+                display: block !important;
+            }
+        }
+    </style>
+    <script>
+        // Ensure page loads at the top
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+        // Also handle navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+
+        // Toggle mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle?.addEventListener('click', function(e) {
+                e.preventDefault();
+                nav.classList.toggle('show');
+            });
+        });
+    </script>
+</head>
+<body data-page-title="mms Intelligent Media System">
+    <div class="window-controls">[ _ □ X ]</div>
+    <div class="scanlines"></div>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="/rizomorf/blog/" aria-label="Go to Recent Posts">RECENTS</a>
+        <a href="/rizomorf/ux-work/" aria-label="Go to UX Work">UX WORK</a>
+        <a href="/rizomorf/about.html" aria-label="Go to About">ABOUT</a>
+        <a href="/rizomorf/faq.html" aria-label="Go to FAQ">FAQ</a>
+        <a href="/rizomorf/" aria-label="Show Menu" class="menu-toggle">INDEX</a>
+    </nav>
+
+    <div class="content-wrapper">
+        
+<article class="ux-project">
+    <header>
+        <h1>mms Intelligent Media System</h1>
+        <div class="meta">
+            
+            <div class="role">Role: Usability Engineer</div>
+            
+            
+            <div class="timeline">Timeline: 2014</div>
+            
+        </div>
+        
+        <div class="overview">
+            Improving complex digital signage software
+        </div>
+        
+    </header>
+
+    <h1>mms Intelligent Media System</h1>
+<h2>Project Details</h2>
+<ul>
+<li><strong>Fields</strong>: digital signage, agile, b2b, marketing, user interfaces, information architecture</li>
+<li><strong>Type</strong>: desktop / browser application, mobile app, touch kiosk interface</li>
+<li><strong>Methods</strong>: user centred design, lean user research, field observation, rapid prototyping, usability testing</li>
+<li><strong>Activities</strong>: creating wireframes, creating personas, specify user requirements, negotiating with stakeholders, negotiating budgets, adapting user centred design, internationalisation</li>
+<li><strong>Tools</strong>: pen &amp; paper, axure rp pro, photoshop, illustrator</li>
+</ul>
+<h2>Overview</h2>
+<p>The Intelligent Media System (IMS) is a platform for digital signage that facilitates the scheduling and distribution of content to screens at multiple distant locations. It is an online based command centre used by businesses running large media networks. It consists of several independent, but interconnected applications: The IMS Manager, The IMS Monitoring Tools, IMS Setup Tools and the IMS Content Creator.</p>
+<p>If you are unfamiliar with digital signage it's basically the use of digital screens to display information in public spaces. Think of digital menu boards, retail way-finding, screens in busses and trains and at airports.</p>
+<h2>Challenge</h2>
+<p>The challenge was to redesign a rather complicated digital signage software suite so it would look amazing and customers would love to use it.</p>
+<h2>Target Users</h2>
+<p>The target users were businesses with digital screens in multiple locations. Each screen had to be fed with video content or custom websites. These were big companies like Douglas Holding Perfumery, NEC and the public transport system in Aachen (ASEAG). Of course it is people that actually use the software, not companies. People managing play-out.</p>
+<h2>Team Structure and Role</h2>
+<h3>Team Structure</h3>
+<p>The project team included the CEO and the CTO, 4 software developers, a graphic designer, a marketer, an information architecture specialist and me, an interaction designer with the goal of applying a human-centred design process.</p>
+<h3>My Role</h3>
+<p>My role as the Interaction Designer and User Experience Lead involved:</p>
+<ul>
+<li>Developing personas</li>
+<li>Generating concepts</li>
+<li>Designing user interfaces</li>
+<li>Creating design specifications (design patterns, colour scheme, etc.)</li>
+<li>Designing for improved human-computer interactions</li>
+<li>Testing the usability of software</li>
+<li>Writing original copy</li>
+<li>Internationalising text components</li>
+<li>Creating wireframes</li>
+<li>Solving scheduling problems for media play-out to multiple screens at various locations across Germany and internationally</li>
+<li>Re-working the marketing material for the landing page and trade fair brochures</li>
+</ul>
+<h2>Constraints</h2>
+<p>Budget was an issue. There wasn't one. At least for user research. There was, understandably, pressure from the investors for quick returns on their investments. Under these conditions I fought for and got the opportunity to make field observations on our main customer. From these observations I derived the persona. I also implemented a 'feedback button' into the software, created a method for collecting and prioritising the issues reported and introduced the 'red routes' technique put forward by David Travis.</p>
+<h2>Design Process</h2>
+<p>IMS is a software product that, when I joined the project, was already on the market and in use. So my first job was to get up to speed with it, find out how it was constructed and how customers were using it. My tasks included:</p>
+<ul>
+<li>Redesigning the IMS manager</li>
+<li>Improving the usability of Setup and Monitoring tools</li>
+<li>Designing a 'Content Creator' tool for creating dynamic content</li>
+</ul>
+<p>Non-disclosure agreements do not allow me to go into detail here. The work samples shown here have in part been reworked to approved by the company now maintaining the intelligent media system.</p>
+<h3>Understand and Research</h3>
+<p>The first couple of months developers, system architects, CTO, CEO and marketing people were introducing me to the software and giving me their perspectives on what was great, what they thought needed change and what was missing. I then went on to interviews and field studies, which informed a user flow diagram.</p>
+<p>I then started to identify the major areas where improvements were necessary and to develop appropriate solutions. I changed the interface from Excel-like to a more user friendly, engaging one. I was guided by a helped create a graphical workflow that more closely afforded the outcome that the user wanted.</p>
+<p>The workflow included:</p>
+<ol>
+<li>Add media files to your library</li>
+<li>Place media in Channels, add individual playout rules</li>
+<li>Assign your Channel to displays, touch interfaces or video walls</li>
+</ol>
+<p>To help the developers and CEO's have a clear picture of the user's expectations, I created a persona of the archetypical IMS user. I used Barnabas Nagy's template because I liked it and I figured it would be effective at engaging our team of developers. If it shifted my teams awareness towards our users ever so slightly, it's a success.</p>
+<h3>Prototyping</h3>
+<p>I used paper prototypes to test new interfaces and micro interactions where I saw room for improvement. I then created a prototype in Axure RP Pro.</p>
+<p>The graphic designers created higher fidelity screens which I fed back into the Axure RP prototype to make a clickable Version.</p>
+<h3>Prototype Testing and User Feedback</h3>
+<p>I visited our main customer, who was using the then current software version, and tested my ideas by getting an employee to use a prototype I had created in Axure. I timed her on a couple of task completion challenges and learned that the prototype was more efficient. Probably a result applying Fitt's law and streamlining the interface. It was also rated more fun to use. She liked the colours. By watching her use the prototype and observing her walk through the most common tasks I learned that some parts were not easy to understand. So I changed them.</p>
+<p>To give our customers full control of their media system is to enable them to easily define various time spans and repetitions for media content. Getting this right took many hours of research and trial and error.</p>
+<h3>UI Specifications</h3>
+<p>I initiated and supervised the creation of UI style guides by the graphic designers to be used by the company across all products. This guide made it a lot easier to maintain consistency across the various applications.</p>
+<h2>Marketing Aspects</h2>
+<p>I created layouts and copy for a new company homepage.</p>
+<h2>Retrospective</h2>
+<p>I was able to raise awareness at mainstream for the importance of design related issues.</p>
+<p>The method of getting feedback from customers by having our marketing and sales people gather information during customer visits was sub-optimal. One really has to observe what users do: What they say and what they need can be two entirely different things, which is why we shouldn't pay attention to what people say but instead observe their behaviour in context.</p>
+<p>I've learned never to design a product without having met the people who will be using it.</p>
+<p>As a result of my experience with this project I decided to deepen my knowledge and skills in this area by studying for a masters degree in Usability Engineering. This I am doing at the Rhine-Waal University.</p>
+<p>mainstream media solutions GmbH closed it's doors in 2014. The software I worked on was bought by another company. It is still in use today under another name. see https://walkby-sys.de</p>
+
+
+    <nav class="navigation">
+        
+        
+        <a href="/rizomorf/ux-work/meet-able.html" class="prev">meet.able</a>
+        
+        
+        
+    </nav>
+</article>
+
+    </div>
+
+    <!-- DOS Prompt -->
+    <div id="dos-prompt"></div>
+    
+    <footer>
+        <!-- Empty footer -->
+    </footer>
+</body>
+</html> 

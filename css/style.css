@@ -1,0 +1,471 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dos-yellow: #FFB000;
+    --dos-black: #000000;
+    --dos-dim: rgba(255, 176, 0, 0.7);
+    --dos-bright: #FFD700;
+    --dos-border: #FFB000;
+    --min-touch-target: 44px;
+    --content-max-width: 800px;
+    --line-height: 1.5;
+    --spacing-unit: 1rem;
+    --title-height: 1.5rem;
+    --title-path: "D:\\Dominic Kennedy\\Users\\Guest\\";
+}
+
+/* Reset body styling */
+body {
+    background-color: var(--dos-black);
+    color: var(--dos-yellow);
+    font-family: "Courier New", Courier, monospace;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
+    overflow-x: hidden;
+    border: 2px solid var(--dos-yellow);
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Top border with title */
+body::before {
+    content: attr(data-page-title);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background-color: var(--dos-black);
+    border-bottom: 2px solid var(--dos-yellow);
+    padding: 0.25rem 1rem;
+    z-index: 1000;
+}
+
+/* Bottom border */
+body:after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-black);
+    border-top: 2px solid var(--dos-yellow);
+    z-index: 1000;
+}
+
+/* Title Bar */
+body:before {
+    content: var(--title-path) attr(data-page-title);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-yellow);
+    color: var(--dos-black);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--dos-border);
+    z-index: 1000;
+}
+
+/* Bottom border */
+body:after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--title-height);
+    background-color: var(--dos-black);
+    border-top: 2px solid var(--dos-yellow);
+    z-index: 1000;
+}
+
+/* Window Controls */
+.window-controls {
+    position: fixed;
+    top: 0;
+    right: 0.5rem;
+    height: var(--title-height);
+    color: var(--dos-black);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    z-index: 1001;
+    content: "[guest]";
+}
+
+/* Navigation with proper touch targets */
+nav {
+    border-bottom: none;
+    padding-bottom: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    z-index: 1;
+    margin-top: 0.5rem;
+}
+
+nav:before {
+    content: "D:\\>";
+    position: absolute;
+    left: 0;
+    color: var(--dos-dim);
+    top: 0;
+    height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: var(--dos-yellow);
+    text-decoration: none;
+    padding: calc(var(--min-touch-target) / 4);
+    min-height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav a.menu-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--dos-black);
+    z-index: 2;
+    padding-right: 0.5rem;
+}
+
+nav a.menu-toggle:hover,
+nav a.menu-toggle:focus {
+    background-color: var(--dos-yellow);
+}
+
+nav a:before {
+    content: ">";
+    margin-right: 0.5rem;
+}
+
+nav a.menu-toggle:before {
+    content: "[";
+    margin-right: 0.25rem;
+}
+
+nav a.menu-toggle:after {
+    content: "]";
+    margin-left: 0.25rem;
+}
+
+/* Interactive element feedback */
+nav a:hover, 
+nav a:focus,
+a:hover,
+a:focus {
+    background-color: var(--dos-yellow);
+    color: var(--dos-black);
+    outline: none;
+    text-decoration: none;
+}
+
+/* Content structure */
+main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    flex: 1;
+    border: none;
+}
+
+article {
+    margin: var(--spacing-unit) 0;
+}
+
+/* Article header and metadata */
+article header {
+    margin-bottom: var(--spacing-unit);
+}
+
+.meta {
+    color: var(--dos-dim);
+    margin: calc(var(--spacing-unit) / 2) 0;
+}
+
+/* Headers with DOS-style underlines */
+h1, h2, h3 {
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+    margin: 2rem 0 1rem 0;
+    clear: both;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+/* Lists with DOS-style markers */
+ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+ul li {
+    padding: calc(var(--min-touch-target) / 4) 0;
+    position: relative;
+}
+
+ul li:before {
+    content: ">";
+    color: var(--dos-yellow);
+    position: absolute;
+    left: -1rem;
+}
+
+/* Links styled as commands */
+a {
+    color: var(--dos-yellow);
+    text-decoration: underline;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    min-height: calc(var(--min-touch-target) * 0.75);
+}
+
+/* Prompt styling */
+.prompt {
+    color: var(--dos-yellow);
+    margin: var(--spacing-unit) 0;
+    font-weight: bold;
+    min-height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+.prompt:before {
+    content: none;
+}
+
+/* Footer styling */
+footer {
+    position: relative;
+    z-index: 1;
+    max-width: var(--content-max-width);
+    margin: var(--spacing-unit) 0 0;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    border-top: 1px solid var(--dos-yellow);
+}
+
+footer .prompt {
+    color: var(--dos-dim);
+    font-size: 0.9em;
+}
+
+/* Blinking cursor effect */
+.prompt:after {
+    content: none;
+}
+
+footer .prompt:after {
+    content: "█";
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    :root {
+        --spacing-unit: 0.75rem;
+        --title-path: "D:\\Dominic K\\...\\Guest\\";
+    }
+
+    body {
+        margin: 0;
+        padding: calc(var(--title-height) + var(--spacing-unit)) var(--spacing-unit) var(--spacing-unit);
+        border-width: 1px;
+    }
+
+    main {
+        padding: var(--spacing-unit);
+    }
+
+    nav {
+        flex-direction: column;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    nav:before {
+        top: 0;
+        height: var(--min-touch-target);
+    }
+
+    nav a {
+        padding: calc(var(--min-touch-target) / 3);
+        height: var(--min-touch-target);
+        align-items: center;
+    }
+
+    body:before {
+        content: "D:\\Dominic K\\...\\Guest\\";
+    }
+    
+    body:after {
+        content: "[ X ]";
+    }
+
+    footer {
+        padding: var(--spacing-unit);
+    }
+
+    nav a.menu-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+/* Code blocks and pre formatting */
+pre, code {
+    background-color: transparent;
+    border: 1px solid var(--dos-yellow);
+    padding: var(--spacing-unit);
+    margin: var(--spacing-unit) 0;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+
+/* Form elements if needed */
+input, textarea {
+    background-color: var(--dos-black);
+    color: var(--dos-yellow);
+    border: 1px solid var(--dos-yellow);
+    padding: 0.5rem;
+    min-height: var(--min-touch-target);
+    font-family: "Courier New", Courier, monospace;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--dos-yellow);
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--dos-yellow);
+    outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dos-black);
+    border: 1px solid var(--dos-yellow);
+    margin-bottom: calc(var(--title-height) + 4px);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dos-yellow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dos-bright);
+}
+
+/* Optional: Add some scan lines for that CRT feel */
+.scanlines {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 176, 0, 0.02) 2px,
+        rgba(255, 176, 0, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    display: none;
+}
+
+@media (min-width: 601px) {
+    .scanlines {
+        display: block;
+    }
+}
+
+/* Section separators */
+article section:not(:last-child) {
+    margin-bottom: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--dos-yellow);
+}
+
+/* DOS Prompt Styles */
+#dos-prompt {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-family: 'DOS', monospace;
+}
+
+.prompt-line {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.prompt-text {
+    color: var(--dos-yellow);
+    margin-right: 0.5rem;
+}
+
+.prompt-input,
+.search-input {
+    background: var(--dos-black);
+    color: var(--dos-yellow);
+    border: none;
+    font-family: 'DOS', monospace;
+    font-size: 1rem;
+    flex-grow: 1;
+    outline: none;
+}
+
+.prompt-output {
+    color: var(--dos-yellow);
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+}
+
+.prompt-output .search-input {
+    display: block;
+    margin-top: 0.5rem;
+} 

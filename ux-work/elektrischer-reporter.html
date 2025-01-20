@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baseUrl" content="/rizomorf">
+    <title>elektrischer reporter - DOS Mode</title>
+    <link rel="stylesheet" href="/rizomorf/css/style.css">
+    <script defer src="/rizomorf/js/title.js"></script>
+    <script defer src="/rizomorf/js/search.js"></script>
+    <script defer src="/rizomorf/js/dos-prompt.js"></script>
+    <style>
+        /* Main content wrapper */
+        .content-wrapper {
+            min-height: calc(100vh - 100px); /* Reduced height since we removed newsletter */
+            padding-bottom: 2rem;
+            margin-top: calc(var(--title-height) + var(--min-touch-target));
+        }
+
+        /* Sticky navigation */
+        nav {
+            position: fixed;
+            top: var(--title-height);
+            left: 0;
+            right: 0;
+            background: var(--dos-black);
+            padding: 0.5rem 3rem;
+            z-index: 1001;
+        }
+
+        /* Sticky DOS prompt */
+        #dos-prompt {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dos-black);
+            border-top: 2px solid var(--dos-yellow);
+            padding: 1rem;
+            z-index: 999;
+        }
+
+        /* Remove sticky footer since newsletter moved to index */
+        .sticky-footer {
+            display: none;
+        }
+
+        /* Window controls */
+        .window-controls {
+            content: "[guest]";
+            position: fixed;
+            top: 0;
+            right: 0.5rem;
+            height: var(--title-height);
+            color: var(--dos-black);
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        /* DOS-style form customization */
+        .formkit-form {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: none !important;
+            font-family: 'DOS', monospace !important;
+            padding: 1rem !important;
+            margin: 0 !important;
+        }
+        .formkit-form * {
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form button,
+        .formkit-form [data-element="submit"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+            text-transform: uppercase !important;
+        }
+        .formkit-form button:hover,
+        .formkit-form [data-element="submit"]:hover {
+            background: var(--dos-yellow) !important;
+            color: var(--dos-black) !important;
+        }
+        .formkit-form input,
+        .formkit-form [data-element="field"] {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+            font-family: 'DOS', monospace !important;
+        }
+        .formkit-form .formkit-alert {
+            background: var(--dos-black) !important;
+            color: var(--dos-yellow) !important;
+            border: 1px solid var(--dos-yellow) !important;
+        }
+        .formkit-form .formkit-guarantee {
+            color: var(--dos-yellow) !important;
+        }
+        #convertkit-form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Remove decorative prompt */
+        nav:before {
+            content: none;
+        }
+
+        /* Mobile navigation adjustments */
+        @media (max-width: 600px) {
+            nav {
+                display: none; /* Hide by default on mobile */
+                position: fixed;
+                top: var(--title-height);
+                left: 0;
+                right: 0;
+                background: var(--dos-black);
+                border-bottom: 2px solid var(--dos-yellow);
+                padding: 1rem;
+                z-index: 1000;
+            }
+
+            nav.show {
+                display: block;
+            }
+
+            /* Remove extra border on mobile */
+            body {
+                border: none;
+            }
+
+            .menu-toggle {
+                display: block !important;
+            }
+        }
+    </style>
+    <script>
+        // Ensure page loads at the top
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+        // Also handle navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+
+        // Toggle mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle?.addEventListener('click', function(e) {
+                e.preventDefault();
+                nav.classList.toggle('show');
+            });
+        });
+    </script>
+</head>
+<body data-page-title="elektrischer reporter">
+    <div class="window-controls">[ _ □ X ]</div>
+    <div class="scanlines"></div>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="/rizomorf/blog/" aria-label="Go to Recent Posts">RECENTS</a>
+        <a href="/rizomorf/ux-work/" aria-label="Go to UX Work">UX WORK</a>
+        <a href="/rizomorf/about.html" aria-label="Go to About">ABOUT</a>
+        <a href="/rizomorf/faq.html" aria-label="Go to FAQ">FAQ</a>
+        <a href="/rizomorf/" aria-label="Show Menu" class="menu-toggle">INDEX</a>
+    </nav>
+
+    <div class="content-wrapper">
+        
+<article class="ux-project">
+    <header>
+        <h1>elektrischer reporter</h1>
+        <div class="meta">
+            
+            <div class="role">Role: Podcast Production</div>
+            
+            
+            <div class="timeline">Timeline: 2009-2011</div>
+            
+        </div>
+        
+        <div class="overview">
+            Documentary series about internet culture and digital change
+        </div>
+        
+    </header>
+
+    <h1>elektrischer reporter</h1>
+<h2>Overview</h2>
+<p>&quot;Elektrischer Reporter&quot; is a documentary series about internet culture and digital change. Originally developed in 2006 for the german news portal Handelsblatt.com, the series is now produced for the online division of german public television broadcaster ZDF.</p>
+<p>Every episode of the series is published under a public license (CC), which permits viewers to download, embed and re-distribute the videos in their own internet sites in original or even modified form. Episodes of &quot;Elektrischer Reporter&quot; can even be downloaded from BitTorrent portals like ThePirateBay.org - legally.</p>
+<p>Apart from talking heads the internet culture topics are almost pictureless (a massive problem for the coverage of those topics in video formats …). &quot;Elektrischer Reporter&quot; however has found his own special way of presentation: Off comments are accompanied by associative pictures of everyday life or by retro film snippets. Complex contexts are illustrated and explained with funny cartoons. The &quot;electric reporter&quot; himself presents the trendsetting topics as a cool retro style TV host in a drawn black-and-white studio.</p>
+<h2>Project Details</h2>
+<ul>
+<li><strong>Timeline</strong>: February 2009 - 2011</li>
+<li><strong>Client</strong>: Blinkenlichten Produktionen</li>
+<li><strong>Role</strong>: Podcast Production</li>
+</ul>
+<h2>Responsibilities</h2>
+<ul>
+<li>Camera</li>
+<li>Interviews</li>
+<li>Footage Research</li>
+<li>Post Production</li>
+<li>Collaboration with 2 Journalists, a narrator, a post production agency and lots of interesting people we interviewed</li>
+</ul>
+<h2>Tools</h2>
+<ul>
+<li>Internet Archive</li>
+<li>Adobe Premiere and After Effects</li>
+<li>Photoshop</li>
+</ul>
+
+
+    <nav class="navigation">
+        
+        
+        <a href="/rizomorf/ux-work/design-sprint-loops.html" class="prev">Design Sprint: Loops</a>
+        
+        
+        
+    </nav>
+</article>
+
+    </div>
+
+    <!-- DOS Prompt -->
+    <div id="dos-prompt"></div>
+    
+    <footer>
+        <!-- Empty footer -->
+    </footer>
+</body>
+</html> 

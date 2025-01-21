@@ -24,10 +24,12 @@
         /* Main content wrapper */
         .content-wrapper {
             padding: 0 2rem;
-            margin-top: calc(var(--title-height) + 2rem); /* Increased margin to prevent overlap */
+            margin-top: 3rem; /* Fixed value instead of variable */
             flex: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
         /* Sticky navigation */
@@ -41,7 +43,7 @@
             z-index: 1001;
             display: flex;
             gap: 1rem;
-            border-bottom: 1px solid var(--dos-yellow); /* Added border for visual separation */
+            height: 2rem;
         }
 
         nav a {
@@ -61,8 +63,8 @@
             padding: 1rem 2rem;
             margin-top: auto;
             margin-bottom: 2px;
-            position: fixed; /* Changed to fixed */
-            bottom: 2px; /* Align with frame */
+            position: fixed;
+            bottom: 2px;
             left: 2px;
             right: 2px;
             z-index: 1000;
@@ -77,8 +79,16 @@
             color: var(--dos-yellow);
             display: flex;
             align-items: center;
+            gap: 1rem;
             font-weight: bold;
-            z-index: 1001;
+            z-index: 1002;
+        }
+
+        .menu-toggle {
+            color: var(--dos-yellow);
+            text-decoration: none;
+            cursor: pointer;
+            display: none;
         }
 
         /* Remove sticky footer since newsletter moved to index */
@@ -136,24 +146,35 @@
         @media (max-width: 600px) {
             .content-wrapper {
                 padding: 0 1rem;
-                margin-bottom: 4rem; /* Add space for DOS prompt */
+                margin-top: 3rem;
+                margin-bottom: 4rem;
+            }
+
+            nav {
+                display: flex;
+                padding: 0.5rem 1rem;
+                height: auto;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             nav {
                 display: none;
-                padding: 0.5rem 1rem;
+                top: 3rem;
                 background: var(--dos-black);
                 border: 1px solid var(--dos-yellow);
+                flex-direction: column;
+                gap: 0;
             }
 
             nav.show {
                 display: flex;
-                flex-direction: column;
-                top: 2.5rem; /* Move below the window controls */
             }
 
             nav a {
-                padding: 0.5rem;
+                padding: 0.75rem;
                 border-bottom: 1px solid var(--dos-yellow);
             }
 
@@ -167,6 +188,9 @@
 
             .window-controls {
                 padding: 0.5rem 1rem;
+                background: var(--dos-black);
+                border-bottom: 1px solid var(--dos-yellow);
+                left: 4px;
             }
         }
     </style>

@@ -14,7 +14,7 @@
         body {
             min-height: 100vh;
             margin: 0;
-            padding: 2px; /* Creates the frame */
+            padding: 2px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -24,7 +24,7 @@
         /* Main content wrapper */
         .content-wrapper {
             padding: 0 2rem;
-            margin-top: calc(var(--title-height) + 1rem);
+            margin-top: calc(var(--title-height) + 2rem); /* Increased margin to prevent overlap */
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -33,14 +33,15 @@
         /* Sticky navigation */
         nav {
             position: fixed;
-            top: 4px; /* Increased to prevent overlap */
-            left: 4px; /* Aligned with frame */
-            right: 4px; /* Aligned with frame */
+            top: 4px;
+            left: 4px;
+            right: 4px;
             background: var(--dos-black);
             padding: 0.5rem 2rem;
             z-index: 1001;
             display: flex;
             gap: 1rem;
+            border-bottom: 1px solid var(--dos-yellow); /* Added border for visual separation */
         }
 
         nav a {
@@ -58,14 +59,19 @@
         #dos-prompt {
             background: var(--dos-black);
             padding: 1rem 2rem;
-            margin-top: auto; /* Push to bottom of content */
-            margin-bottom: 2px; /* Align with frame */
+            margin-top: auto;
+            margin-bottom: 2px;
+            position: fixed; /* Changed to fixed */
+            bottom: 2px; /* Align with frame */
+            left: 2px;
+            right: 2px;
+            z-index: 1000;
         }
 
         /* Window controls */
         .window-controls {
             position: fixed;
-            top: 4px; /* Aligned with nav */
+            top: 4px;
             right: 4px;
             padding: 0.5rem 2rem;
             color: var(--dos-yellow);
@@ -130,20 +136,33 @@
         @media (max-width: 600px) {
             .content-wrapper {
                 padding: 0 1rem;
+                margin-bottom: 4rem; /* Add space for DOS prompt */
             }
 
             nav {
                 display: none;
                 padding: 0.5rem 1rem;
+                background: var(--dos-black);
+                border: 1px solid var(--dos-yellow);
             }
 
             nav.show {
                 display: flex;
                 flex-direction: column;
+                top: 2.5rem; /* Move below the window controls */
+            }
+
+            nav a {
+                padding: 0.5rem;
+                border-bottom: 1px solid var(--dos-yellow);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
             }
 
             #dos-prompt {
-                padding: 1rem;
+                padding: 0.5rem 1rem;
             }
 
             .window-controls {
@@ -186,7 +205,10 @@
     </script>
 </head>
 <body data-page-title="{{ title }}">
-    <div class="window-controls">[guest]</div>
+    <div class="window-controls">
+        <a href="#" class="menu-toggle" aria-label="Toggle menu">☰</a>
+        [guest]
+    </div>
     <div class="scanlines"></div>
     
     <nav role="navigation" aria-label="Main navigation">

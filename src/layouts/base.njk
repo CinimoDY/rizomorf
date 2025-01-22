@@ -244,12 +244,13 @@
     </nav>
 
     <div class="content-wrapper">
+        <!-- DOS Prompt (will be moved to index via JavaScript) -->
+        <div id="dos-prompt"></div>
+        
         {% block content %}
         {{ content | safe }}
         {% endblock %}
     </div>
 
-    <!-- DOS Prompt -->
-    <div id="dos-prompt"></div>
 </body>
 </html> 

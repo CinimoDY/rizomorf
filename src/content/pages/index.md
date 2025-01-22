@@ -7,23 +7,23 @@ permalink: /index.html
 <section class="dos-directory">
 
 ```
-C:\>DIR
+D:\>DIR
 
-Volume in drive C is RIZOMORF
+Volume in drive D is RIZOMORF
 Volume Serial Number is 2024-01-19
 
- Directory of C:\
+ Directory of D:\
 
-01-19-24  02:33p    <DIR>          BLOG
-01-19-24  02:33p    <DIR>          UX_WORK
-01-19-24  02:33p         1,337     ABOUT.TXT
-01-19-24  02:33p           420     FAQ.TXT
-01-19-24  02:33p    <DIR>          SPACEWAR
-          3 File(s)      1,757 bytes
+25-01-15  02:33p    <DIR>          BLOG
+09-06-25  02:33p    <DIR>          UX_WORK
+82-06-30  02:33p         1,337     ABOUT.TXT
+25-01-12  02:33p           420     FAQ.TXT
+65-12-27  02:33p    <DIR>          SPACEWAR
+          2 File(s)      1,757 bytes
           3 Dir(s)   640K bytes free
-
-C:\>_
 ```
+
+<div id="dos-prompt-index"></div>
 
 </section>
 
@@ -50,6 +50,10 @@ C:\>_
 .dos-directory a:hover {
     color: var(--dos-green);
 }
+
+#dos-prompt-index {
+    margin-top: -1rem;
+}
 </style>
 
 <script>
@@ -70,6 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     typeChar();
+
+    // Move the DOS prompt to the index location
+    const bottomPrompt = document.getElementById('dos-prompt');
+    const indexPrompt = document.getElementById('dos-prompt-index');
+    if (bottomPrompt && indexPrompt) {
+        indexPrompt.appendChild(bottomPrompt);
+        bottomPrompt.style.position = 'static';
+        bottomPrompt.style.margin = '0';
+        bottomPrompt.style.padding = '0';
+    }
 });
 </script>
 

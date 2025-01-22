@@ -42,6 +42,8 @@ Volume Serial Number is 2024-01-19
     white-space: pre;
     font-family: 'DOS', monospace;
     color: var(--dos-yellow);
+    border: none;
+    padding: 0;
 }
 .dos-directory a {
     text-decoration: none;

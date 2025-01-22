@@ -115,21 +115,15 @@ nav {
     flex-wrap: wrap;
     gap: 1rem;
     position: relative;
-    padding-left: 3rem;
+    padding-left: 1rem;
     padding-right: 3rem;
     z-index: 1;
     margin-top: 0.5rem;
 }
 
+/* Remove nav:before pseudo-element */
 nav:before {
-    content: "D:\\>";
-    position: absolute;
-    left: 0;
-    color: var(--dos-dim);
-    top: 0;
-    height: var(--min-touch-target);
-    display: flex;
-    align-items: center;
+    content: none;
 }
 
 nav a {
@@ -313,11 +307,6 @@ footer .prompt:after {
         flex-direction: column;
         padding-left: 3rem;
         padding-right: 3rem;
-    }
-
-    nav:before {
-        top: 0;
-        height: var(--min-touch-target);
     }
 
     nav a {

@@ -88,6 +88,10 @@ body:after {
     padding: 0 0.5rem;
 }
 
+.window-controls:after {
+    content: "[guest]";
+}
+
 /* Navigation */
 nav {
     border-bottom: none;
@@ -103,7 +107,6 @@ nav {
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
-    border-bottom: 2px solid var(--dos-yellow);
 }
 
 /* Navigation wrapper to ensure background extends full width */
@@ -310,7 +313,7 @@ footer .prompt:after {
     nav {
         flex-direction: column;
         padding: var(--spacing-unit);
-        border-bottom: none;
+        display: none;
     }
 
     nav.show {
@@ -325,6 +328,11 @@ footer .prompt:after {
     nav a.menu-toggle {
         font-size: 1.2rem;
         padding: 0 0.75rem;
+        display: flex;
+    }
+
+    .window-controls:after {
+        display: none;
     }
 }
 

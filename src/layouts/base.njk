@@ -19,31 +19,50 @@
             display: flex;
             flex-direction: column;
             background: var(--dos-black);
+            gap: 0;
         }
 
-        /* Main content wrapper */
-        .content-wrapper {
-            padding: 0 2rem;
-            margin-top: 3rem; /* Fixed value instead of variable */
-            flex: 1;
+        /* Title bar wrapper */
+        .title-bar-wrapper {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1002;
             display: flex;
             flex-direction: column;
-            position: relative;
-            z-index: 1;
+            gap: 0;
         }
 
-        /* Sticky navigation */
-        nav {
-            position: fixed;
+        /* Window controls */
+        .window-controls {
+            position: absolute;
             top: 4px;
-            left: 4px;
             right: 4px;
+            padding: 0.25rem 1rem;
+            color: var(--dos-black);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: bold;
+            z-index: 1002;
+            height: calc(var(--title-height) - 8px);
+        }
+
+        /* Navigation wrapper */
+        .nav-wrapper {
+            padding-top: calc(var(--title-height) + 4px);
             background: var(--dos-black);
-            padding: 0.5rem 2rem;
             z-index: 1001;
+        }
+
+        /* Navigation */
+        nav {
             display: flex;
             gap: 1rem;
+            padding: 0.5rem 2rem;
             height: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -57,116 +76,52 @@
             color: var(--dos-black);
         }
 
-        /* DOS prompt - stays within frame */
+        /* Main content wrapper */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            min-height: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* DOS prompt */
         #dos-prompt {
             background: var(--dos-black);
             padding: 1rem 2rem;
             margin-top: auto;
-            margin-bottom: 2px;
-            position: fixed;
+            position: sticky;
             bottom: 2px;
-            left: 2px;
-            right: 2px;
             z-index: 1000;
         }
 
-        /* Window controls */
-        .window-controls {
-            position: fixed;
-            top: 4px;
-            right: 4px;
-            padding: 0.5rem 2rem;
-            color: var(--dos-yellow);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: bold;
-            z-index: 1002;
-        }
-
-        .menu-toggle {
-            color: var(--dos-yellow);
-            text-decoration: none;
-            cursor: pointer;
-            display: none;
-        }
-
-        /* Remove sticky footer since newsletter moved to index */
-        .sticky-footer {
-            display: none;
-        }
-
-        /* DOS-style form customization */
-        .formkit-form {
-            background: var(--dos-black) !important;
-            color: var(--dos-yellow) !important;
-            border: none !important;
-            font-family: 'DOS', monospace !important;
-            padding: 1rem !important;
-            margin: 0 !important;
-        }
-        .formkit-form * {
-            font-family: 'DOS', monospace !important;
-        }
-        .formkit-form button,
-        .formkit-form [data-element="submit"] {
-            background: var(--dos-black) !important;
-            color: var(--dos-yellow) !important;
-            border: 1px solid var(--dos-yellow) !important;
-            font-family: 'DOS', monospace !important;
-            text-transform: uppercase !important;
-        }
-        .formkit-form button:hover,
-        .formkit-form [data-element="submit"]:hover {
-            background: var(--dos-yellow) !important;
-            color: var(--dos-black) !important;
-        }
-        .formkit-form input,
-        .formkit-form [data-element="field"] {
-            background: var(--dos-black) !important;
-            color: var(--dos-yellow) !important;
-            border: 1px solid var(--dos-yellow) !important;
-            font-family: 'DOS', monospace !important;
-        }
-        .formkit-form .formkit-alert {
-            background: var(--dos-black) !important;
-            color: var(--dos-yellow) !important;
-            border: 1px solid var(--dos-yellow) !important;
-        }
-        .formkit-form .formkit-guarantee {
-            color: var(--dos-yellow) !important;
-        }
-        #convertkit-form-container {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Mobile navigation adjustments */
+        /* Mobile adjustments */
         @media (max-width: 600px) {
             .content-wrapper {
-                padding: 0 1rem;
-                margin-top: 3rem;
-                margin-bottom: 4rem;
+                padding: 1rem;
             }
 
             nav {
-                display: flex;
                 padding: 0.5rem 1rem;
-                height: auto;
             }
 
-            .menu-toggle {
-                display: block;
+            .nav-wrapper {
+                position: relative;
             }
 
             nav {
                 display: none;
-                top: 3rem;
+                position: absolute;
+                top: 100%;
+                left: 4px;
+                right: 4px;
                 background: var(--dos-black);
                 border: 1px solid var(--dos-yellow);
                 flex-direction: column;
-                gap: 0;
+                height: auto;
+                padding: 0;
             }
 
             nav.show {
@@ -184,13 +139,6 @@
 
             #dos-prompt {
                 padding: 0.5rem 1rem;
-            }
-
-            .window-controls {
-                padding: 0.5rem 1rem;
-                background: var(--dos-black);
-                border-bottom: 1px solid var(--dos-yellow);
-                left: 4px;
             }
         }
     </style>
@@ -229,28 +177,31 @@
     </script>
 </head>
 <body data-page-title="{{ title }}">
-    <div class="window-controls">
-        <a href="#" class="menu-toggle" aria-label="Toggle menu">☰</a>
-        [guest]
+    <div class="title-bar-wrapper">
+        <div class="window-controls">
+            <a href="#" class="menu-toggle" aria-label="Toggle menu">☰</a>
+            [guest]
+        </div>
     </div>
-    <div class="scanlines"></div>
     
-    <nav role="navigation" aria-label="Main navigation">
-        <a href="{{ baseUrl }}/blog/">RECENTS</a>
-        <a href="{{ baseUrl }}/ux-work/">UX WORK</a>
-        <a href="{{ baseUrl }}/about.html">ABOUT</a>
-        <a href="{{ baseUrl }}/faq.html">FAQ</a>
-        <a href="{{ baseUrl }}/">INDEX</a>
-    </nav>
+    <div class="nav-wrapper">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="{{ baseUrl }}/blog/">RECENTS</a>
+            <a href="{{ baseUrl }}/ux-work/">UX WORK</a>
+            <a href="{{ baseUrl }}/about.html">ABOUT</a>
+            <a href="{{ baseUrl }}/faq.html">FAQ</a>
+            <a href="{{ baseUrl }}/">INDEX</a>
+        </nav>
+    </div>
 
     <div class="content-wrapper">
-        <!-- DOS Prompt (will be moved to index via JavaScript) -->
-        <div id="dos-prompt"></div>
-        
         {% block content %}
         {{ content | safe }}
         {% endblock %}
+        
+        <div id="dos-prompt"></div>
     </div>
 
+    <div class="scanlines"></div>
 </body>
 </html> 

@@ -15,7 +15,7 @@
     --content-max-width: 800px;
     --line-height: 1.5;
     --spacing-unit: 1rem;
-    --title-height: 1.5rem;
+    --title-height: 2rem;
     --title-path: "D:\\Dominic Kennedy\\Users\\Guest\\";
 }
 
@@ -42,6 +42,7 @@ body:before {
     left: 0;
     right: 0;
     height: var(--title-height);
+    line-height: var(--title-height);
     background-color: var(--dos-yellow);
     color: var(--dos-black);
     display: flex;
@@ -73,15 +74,13 @@ body:after {
     top: 0;
     right: 0.5rem;
     height: var(--title-height);
+    line-height: var(--title-height);
     color: var(--dos-black);
     display: flex;
     align-items: center;
     font-weight: bold;
     z-index: 1001;
-    content: "[guest]";
-    max-height: var(--title-height);
-    line-height: var(--title-height);
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
 }
 
 /* Navigation */
@@ -123,10 +122,10 @@ nav a.menu-toggle {
     top: 0;
     height: var(--title-height);
     line-height: var(--title-height);
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
     display: flex;
     align-items: center;
-    max-height: var(--title-height);
+    color: var(--dos-black);
     background-color: transparent;
     z-index: 1001;
 }
@@ -158,10 +157,21 @@ main {
     z-index: 1;
     width: 100%;
     max-width: var(--content-max-width);
-    margin: calc(var(--spacing-unit) * 2) 0 0;
+    margin: 0;
     padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
     flex: 1;
-    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure content fills space before prompt */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
 }
 
 article {
@@ -289,6 +299,11 @@ footer .prompt:after {
     h1:first-child {
         padding-top: var(--spacing-unit);
     }
+
+    nav a.menu-toggle {
+        font-size: 1.2rem;
+        padding: 0 0.75rem;
+    }
 }
 
 /* Code blocks and pre formatting */
@@ -378,15 +393,19 @@ article section:not(:last-child) {
 
 /* DOS Prompt Styles */
 #dos-prompt {
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
     font-family: 'DOS', monospace;
+    position: relative;
+    background: var(--dos-black);
+    z-index: 1;
 }
 
 .prompt-line {
     display: flex;
     align-items: center;
-    margin: 0.5rem 0;
+    margin: 0;
+    min-height: var(--min-touch-target);
 }
 
 .prompt-text {
@@ -403,15 +422,42 @@ article section:not(:last-child) {
     font-size: 1rem;
     flex-grow: 1;
     outline: none;
+    height: var(--min-touch-target);
+    line-height: var(--min-touch-target);
 }
 
 .prompt-output {
     color: var(--dos-yellow);
     white-space: pre-wrap;
     margin: 0.5rem 0;
+    min-height: var(--min-touch-target);
+    line-height: var(--min-touch-target);
 }
 
-.prompt-output .search-input {
-    display: block;
-    margin-top: 0.5rem;
+/* Remove any special positioning for index page */
+#dos-prompt-index {
+    margin: 0;
+}
+
+/* Content structure */
+main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure content fills space before prompt */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
 } 

@@ -32,7 +32,7 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
-    padding: 0 var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
+    padding: calc(var(--title-height) + var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
     overflow-x: hidden;
     border: 2px solid var(--dos-yellow);
     border-top: none;
@@ -100,14 +100,21 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    position: fixed;
+    top: calc(var(--title-height) + 2px);
+    left: 0;
+    right: 0;
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
-    margin-top: calc(var(--title-height) + 2px);
 }
 
 /* Navigation wrapper to ensure background extends full width */
 .nav-wrapper {
+    position: fixed;
+    top: calc(var(--title-height) + 2px);
+    left: 0;
+    right: 0;
     background-color: var(--dos-black);
     z-index: var(--z-nav);
 }
@@ -284,25 +291,31 @@ footer .prompt:after {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        padding: var(--spacing-unit);
-        display: none;
-        margin-top: calc(var(--title-height) + 2px);
-    }
-
-    nav.show {
-        display: flex;
-        border: 1px solid var(--dos-yellow);
+    :root {
+        --spacing-unit: 0.75rem;
+        --title-path: "D:\\Dominic K\\...\\Guest\\";
     }
 
     body {
-        padding: 0 var(--spacing-unit) var(--spacing-unit);
+        margin: 0;
+        padding: calc(var(--title-height) + var(--spacing-unit) * 5) var(--spacing-unit) var(--spacing-unit);
+        border-width: 1px;
     }
 
     main {
         padding: var(--spacing-unit);
         margin-top: calc(var(--spacing-unit) * 1.5);
+    }
+
+    nav {
+        flex-direction: column;
+        padding: var(--spacing-unit);
+        display: none;
+    }
+
+    nav.show {
+        display: flex;
+        border: 1px solid var(--dos-yellow);
     }
 
     h1:first-child {

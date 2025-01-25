@@ -51,7 +51,10 @@
 
         /* Navigation wrapper */
         .nav-wrapper {
-            padding-top: calc(var(--title-height) + 4px);
+            position: fixed;
+            top: calc(var(--title-height) + 2px);
+            left: 0;
+            right: 0;
             background: var(--dos-black);
             z-index: var(--z-nav);
         }
@@ -108,7 +111,7 @@
             }
 
             .nav-wrapper {
-                position: relative;
+                position: fixed;
             }
 
             nav {

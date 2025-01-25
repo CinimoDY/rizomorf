@@ -32,7 +32,7 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
-    padding: calc(var(--title-height) + var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
+    padding: 0 var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
     overflow-x: hidden;
     border: 2px solid var(--dos-yellow);
     border-top: none;
@@ -100,21 +100,14 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    position: fixed;
-    top: calc(var(--title-height) + 2px);
-    left: 0;
-    right: 0;
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
+    margin-top: calc(var(--title-height) + 2px);
 }
 
 /* Navigation wrapper to ensure background extends full width */
 .nav-wrapper {
-    position: fixed;
-    top: calc(var(--title-height) + 2px);
-    left: 0;
-    right: 0;
     background-color: var(--dos-black);
     z-index: var(--z-nav);
 }
@@ -178,19 +171,16 @@ main {
     max-width: var(--content-max-width);
     margin: 0;
     padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
-    flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Ensure content fills space before prompt */
+/* Ensure content fills available space */
 .content-wrapper {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-content);
 }
 
 article {
@@ -294,31 +284,25 @@ footer .prompt:after {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    :root {
-        --spacing-unit: 0.75rem;
-        --title-path: "D:\\Dominic K\\...\\Guest\\";
-    }
-
-    body {
-        margin: 0;
-        padding: calc(var(--title-height) + var(--spacing-unit) * 5) var(--spacing-unit) var(--spacing-unit);
-        border-width: 1px;
-    }
-
-    main {
-        padding: var(--spacing-unit);
-        margin-top: calc(var(--spacing-unit) * 1.5);
-    }
-
     nav {
         flex-direction: column;
         padding: var(--spacing-unit);
         display: none;
+        margin-top: calc(var(--title-height) + 2px);
     }
 
     nav.show {
         display: flex;
         border: 1px solid var(--dos-yellow);
+    }
+
+    body {
+        padding: 0 var(--spacing-unit) var(--spacing-unit);
+    }
+
+    main {
+        padding: var(--spacing-unit);
+        margin-top: calc(var(--spacing-unit) * 1.5);
     }
 
     h1:first-child {
@@ -423,12 +407,12 @@ article section:not(:last-child) {
 
 /* DOS Prompt Styles */
 #dos-prompt {
-    margin: 2rem 0 0;
+    margin: 0;
     padding: 0;
     font-family: 'DOS', monospace;
     position: relative;
     background: var(--dos-black);
-    z-index: 1;
+    z-index: var(--z-content);
 }
 
 .prompt-line {
@@ -469,25 +453,11 @@ article section:not(:last-child) {
     margin: 0;
 }
 
-/* Content structure */
-main {
-    position: relative;
-    z-index: var(--z-content);
-    width: 100%;
-    max-width: var(--content-max-width);
-    margin: 0;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+/* Section spacing */
+section {
+    margin-bottom: var(--spacing-unit);
 }
 
-/* Ensure content fills space before prompt */
-.content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    position: relative;
-    z-index: 1;
+section:last-child {
+    margin-bottom: 0;
 } 

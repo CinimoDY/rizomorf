@@ -8,6 +8,9 @@ module.exports = function(eleventyConfig) {
     // Add baseUrl as a global data object
     eleventyConfig.addGlobalData("baseUrl", baseUrl);
 
+    // Add pathPrefix as a global data object to ensure it's available in templates
+    eleventyConfig.addGlobalData("pathPrefix", baseUrl);
+
     // Collections
     eleventyConfig.addCollection("uxWork", function(collectionApi) {
         return collectionApi.getFilteredByGlob("src/content/ux-work/**/*.md")

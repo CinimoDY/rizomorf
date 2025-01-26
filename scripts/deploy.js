@@ -14,7 +14,7 @@ async function deploy() {
         
         // Build the site
         console.log('\nBuilding site...');
-        run('cross-env NODE_ENV=production npm run build');
+        run('npm run build:prod');
         
         // Save the current git hash
         const currentHash = execSync('git rev-parse HEAD').toString().trim();

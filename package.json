@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "setup:fonts": "node scripts/setup-fonts.js",
     "build:tokens": "node scripts/build-tokens.js",
-    "build": "npm run clean && npm run build:tokens && eleventy",
+    "build": "npm run clean && eleventy",
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "serve": "eleventy --serve",
     "deploy": "node scripts/deploy.js"

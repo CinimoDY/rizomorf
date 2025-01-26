@@ -1,5 +1,5 @@
 const StyleDictionary = require('style-dictionary');
-const { transformTokens } = require('@tokens-studio/sd-transforms');
+const { transformTokens } = require('token-transformer');
 
 // Configure Style Dictionary with Tokens Studio transforms
 StyleDictionary.registerTransform({
@@ -19,8 +19,8 @@ StyleDictionary.registerTransform({
 // Load and transform tokens
 async function buildTokens() {
   try {
-    // Transform tokens using Tokens Studio transforms
-    const transformed = await transformTokens({
+    // Transform tokens using token-transformer
+    const transformed = transformTokens({
       tokens: require('../src/design-system/figma/tokens.json'),
       sets: ['global', 'component'],
       expandComposites: true,

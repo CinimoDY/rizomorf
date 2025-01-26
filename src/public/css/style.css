@@ -131,27 +131,7 @@ nav a:last-child {
 
 /* Menu Toggle */
 nav a.menu-toggle {
-    position: fixed;
-    right: 0.5rem;
-    top: 0;
-    height: var(--title-height);
-    line-height: var(--title-height);
-    padding: 0 0.5rem;
-    display: flex;
-    align-items: center;
-    color: var(--dos-black);
-    background-color: transparent;
-    z-index: var(--z-controls);
-}
-
-nav a.menu-toggle:before {
-    content: "[";
-    margin-right: 0.25rem;
-}
-
-nav a.menu-toggle:after {
-    content: "]";
-    margin-left: 0.25rem;
+    display: none;
 }
 
 /* Interactive element feedback */

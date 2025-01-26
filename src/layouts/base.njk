@@ -111,10 +111,6 @@
                 font-size: 0.9rem;
                 flex: 0 1 auto;
             }
-
-            nav.show {
-                display: flex;
-            }
         }
     </style>
     <script>
@@ -138,17 +134,6 @@
         
         // Run on hash changes
         window.addEventListener('hashchange', scrollToTop);
-
-        // Toggle mobile navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
-            
-            menuToggle?.addEventListener('click', function(e) {
-                e.preventDefault();
-                nav.classList.toggle('show');
-            });
-        });
 
         document.addEventListener('DOMContentLoaded', () => {
             // Add typewriter effect to content
@@ -207,7 +192,6 @@
 <body data-page-title="{{ title }}">
     <div class="title-bar-wrapper">
         <div class="window-controls">
-            <a href="#" class="menu-toggle" aria-label="Toggle menu">☰</a>
             [guest]
         </div>
     </div>

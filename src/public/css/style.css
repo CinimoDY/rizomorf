@@ -99,6 +99,8 @@ nav {
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
+    width: 100%;
+    max-width: var(--content-max-width);
 }
 
 /* Navigation wrapper to ensure background extends full width */
@@ -106,7 +108,9 @@ nav {
     background-color: var(--dos-black);
     z-index: var(--z-nav);
     margin-top: calc(var(--title-height) + 2px);
-    padding: 0 var(--spacing-unit);
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav a {
@@ -116,13 +120,6 @@ nav a {
     margin-right: var(--spacing-unit);
     position: relative;
     padding-left: 1rem;
-}
-
-nav a:before {
-    content: ">";
-    position: absolute;
-    left: 0;
-    color: var(--dos-yellow);
 }
 
 nav a:last-child {
@@ -288,13 +285,8 @@ footer .prompt:after {
     }
 
     nav {
-        display: none;
         padding: var(--spacing-unit);
-    }
-
-    nav.show {
         display: block;
-        border: 1px solid var(--dos-yellow);
     }
 
     nav a {

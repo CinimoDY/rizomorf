@@ -20,7 +20,17 @@ Volume Serial Number is 2024-01-19
 65-12-27  02:33p    <DIR>          SPACEWAR
           2 File(s)      1,757 bytes
           3 Dir(s)   640K bytes free
-</pre>
+
+Welcome!
+
+You have found your way to my webnode/index which i can now directly edit
+
+who am i?
+
+i enjoy creating tools that make life easier.
+> music production and sound design
+> creative coding and generative art
+> user experience design</pre>
 
 <div id="dos-prompt-index"></div>
 </section>

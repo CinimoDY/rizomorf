@@ -103,11 +103,17 @@
         @media (max-width: 600px) {
             nav {
                 gap: 1rem;
-                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: var(--spacing-unit);
             }
 
             nav a {
                 font-size: 0.9rem;
+                flex: 0 1 auto;
+            }
+
+            nav.show {
+                display: flex;
             }
         }
     </style>

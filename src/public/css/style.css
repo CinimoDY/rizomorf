@@ -114,6 +114,15 @@ nav a {
     color: var(--dos-yellow);
     text-decoration: none;
     margin-right: var(--spacing-unit);
+    position: relative;
+    padding-left: 1rem;
+}
+
+nav a:before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--dos-yellow);
 }
 
 nav a:last-child {

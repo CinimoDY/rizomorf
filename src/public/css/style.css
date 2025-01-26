@@ -465,4 +465,72 @@ section:last-child {
     padding: var(--spacing-unit);
     min-height: 0;
     margin-bottom: calc(var(--title-height) + var(--spacing-unit));
+}
+
+/* ConvertKit Form Styling */
+#convertkit-form-container {
+    margin: var(--spacing-unit) 0;
+}
+
+.formkit-form {
+    background: transparent !important;
+    border: 1px solid var(--dos-yellow) !important;
+    padding: var(--spacing-unit) !important;
+}
+
+.formkit-form * {
+    font-family: "Courier New", Courier, monospace !important;
+}
+
+.formkit-form input[type="text"],
+.formkit-form input[type="email"] {
+    background: var(--dos-black) !important;
+    color: var(--dos-yellow) !important;
+    border: 1px solid var(--dos-yellow) !important;
+    padding: 0.5rem !important;
+    min-height: var(--min-touch-target) !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin: 0.5rem 0 !important;
+}
+
+.formkit-form button {
+    background: var(--dos-black) !important;
+    color: var(--dos-yellow) !important;
+    border: 1px solid var(--dos-yellow) !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    min-height: var(--min-touch-target) !important;
+    width: auto !important;
+}
+
+.formkit-form button:hover {
+    background: var(--dos-yellow) !important;
+    color: var(--dos-black) !important;
+}
+
+.formkit-alert {
+    color: var(--dos-yellow) !important;
+    margin: 0.5rem 0 !important;
+}
+
+.formkit-guarantee,
+.formkit-powered-by-convertkit {
+    color: var(--dos-dim) !important;
+    font-size: 0.9rem !important;
+}
+
+/* Override any ConvertKit default styles */
+.formkit-form div,
+.formkit-form span {
+    color: var(--dos-yellow) !important;
+}
+
+.formkit-form [data-element="fields"] {
+    margin-bottom: var(--spacing-unit) !important;
+}
+
+.formkit-form [data-element="submit"] {
+    margin-top: var(--spacing-unit) !important;
 } 

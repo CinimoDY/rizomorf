@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: left;
 }
 
 :root {
@@ -110,7 +111,7 @@ nav {
     margin-top: calc(var(--title-height) + 2px);
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 nav a {
@@ -147,6 +148,10 @@ main {
     margin-top: 0;
     padding: var(--spacing-unit);
     width: 100%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--content-max-width);
 }
 
 article {
@@ -237,9 +242,10 @@ footer {
     position: relative;
     z-index: 1;
     max-width: var(--content-max-width);
-    margin: var(--spacing-unit) 0 0;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    margin: var(--spacing-unit) auto 0;
+    padding: var(--spacing-unit) var(--spacing-unit);
     border-top: 1px solid var(--dos-yellow);
+    text-align: left;
 }
 
 footer .prompt {
@@ -448,15 +454,9 @@ section:last-child {
     color: var(--dos-black);
 }
 
-/* Content wrapper adjustments */
-.content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: var(--spacing-unit);
-    min-height: 0;
-    margin-bottom: calc(var(--title-height) + var(--spacing-unit));
+/* Newsletter form container */
+#convertkit-form-container {
+    text-align: left;
 }
 
 /* ConvertKit Form Styling */
@@ -498,14 +498,14 @@ section:last-child {
     /* Base styles */
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     gap: 8px !important;
     padding: 8px 16px !important;
     font-family: 'Perfect DOS VGA 437', monospace !important;
     font-size: 16px !important;
     font-weight: 400 !important;
     line-height: 24px !important;
-    text-align: center !important;
+    text-align: left !important;
     word-wrap: break-word !important;
     min-width: 120px !important;
 

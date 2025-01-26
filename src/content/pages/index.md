@@ -4,7 +4,7 @@ layout: base.njk
 permalink: /index.html
 ---
 
-<section class="dos-directory">
+<section>
 <pre>D:\&gt;DIR
 
 Volume in drive D is RIZOMORF

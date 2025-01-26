@@ -5,13 +5,9 @@ layout: base.njk
 permalink: /blog/index.html
 ---
 
-# feed
-
 <section>
 
-## updates
-
-> 2024-01-19 [Play Spacewar in your browser]({{ baseUrl }}/dos-games/) - Classic DOS game now playable on modern devices
+> {{ post.data.date | formatDate }}  [Play Spacewar in your browser]({{ baseUrl }}/dos-games/)
 
 {% for post in collections.blog %}
 > {{ post.data.date | formatDate }} [{{ post.data.title }}]({{ baseUrl }}/blog/{{ post.fileSlug }}.html)

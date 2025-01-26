@@ -27,17 +27,18 @@ C:\>LAUNCH SPACEWAR.EXE
   // Initialize js-dos
   Dos(dosbox).ready((fs, main) => {
     // Load Spacewar when clicked
-    document.querySelector('pre').addEventListener('click', async (e) => {
+    const launchCommand = document.querySelector('pre code, pre');
+    launchCommand.addEventListener('click', async (e) => {
       e.preventDefault();
       container.style.display = 'block';
-      document.querySelector('pre').style.color = 'var(--dos-green)';
+      launchCommand.style.color = 'var(--dos-green)';
       try {
         await fs.createFile("SPACEWAR.EXE", await fetch("{{ baseUrl }}/games/spacewar/SPACEWAR.EXE"));
         main(["-c", "SPACEWAR.EXE"]);
       } catch (error) {
         console.error('Error loading game:', error);
         alert('Error loading game. Please try again.');
-        document.querySelector('pre').style.color = 'var(--dos-yellow)';
+        launchCommand.style.color = 'var(--dos-yellow)';
       }
     });
   });
@@ -58,13 +59,13 @@ C:\>LAUNCH SPACEWAR.EXE
     height: 100%;
   }
 
-  pre {
+  pre, pre code {
     cursor: pointer;
     color: var(--dos-yellow);
     margin: 1rem 0;
   }
 
-  pre:hover {
+  pre:hover, pre code:hover {
     color: var(--dos-green);
   }
 </style>

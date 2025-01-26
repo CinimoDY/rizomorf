@@ -219,10 +219,11 @@ a:focus {
 
 /* DOS Prompt */
 #dos-prompt {
-    margin: var(--spacing-unit) 0 0;
+    margin: var(--spacing-unit) var(--spacing-unit) 0;
     padding: 0;
     font-family: 'DOS', monospace;
     background: var(--dos-black);
+    z-index: var(--z-content);
 }
 
 .prompt-line {
@@ -230,6 +231,7 @@ a:focus {
     align-items: center;
     margin: 0;
     min-height: var(--min-touch-target);
+    line-height: var(--min-touch-target);
 }
 
 /* Footer styling */
@@ -395,52 +397,9 @@ article section:not(:last-child) {
     border-bottom: 1px solid var(--dos-yellow);
 }
 
-/* DOS Prompt Styles */
-#dos-prompt {
-    margin: 0;
-    padding: 0;
-    font-family: 'DOS', monospace;
-    position: relative;
-    background: var(--dos-black);
-    z-index: var(--z-content);
-}
-
-.prompt-line {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    min-height: var(--min-touch-target);
-}
-
-.prompt-text {
-    color: var(--dos-yellow);
-    margin-right: 0.5rem;
-}
-
-.prompt-input,
-.search-input {
-    background: var(--dos-black);
-    color: var(--dos-yellow);
-    border: none;
-    font-family: 'DOS', monospace;
-    font-size: 1rem;
-    flex-grow: 1;
-    outline: none;
-    height: var(--min-touch-target);
-    line-height: var(--min-touch-target);
-}
-
-.prompt-output {
-    color: var(--dos-yellow);
-    white-space: pre-wrap;
-    margin: 0.5rem 0;
-    min-height: var(--min-touch-target);
-    line-height: var(--min-touch-target);
-}
-
 /* Remove any special positioning for index page */
 #dos-prompt-index {
-    margin: 0;
+    margin: var(--spacing-unit) var(--spacing-unit) 0;
 }
 
 /* Section spacing */
@@ -486,4 +445,15 @@ section:last-child {
 .newsletter-signup button:hover {
     background: var(--dos-yellow);
     color: var(--dos-black);
+}
+
+/* Content wrapper adjustments */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--spacing-unit);
+    min-height: 0;
+    margin-bottom: calc(var(--title-height) + var(--spacing-unit));
 } 

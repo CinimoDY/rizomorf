@@ -95,12 +95,9 @@ body:after {
 
 /* Navigation */
 nav {
-    border-bottom: none;
-    padding-bottom: var(--spacing-unit);
-    margin-bottom: var(--spacing-unit);
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--spacing-unit);
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
@@ -114,13 +111,9 @@ nav {
 }
 
 nav a {
+    flex: 0 1 auto;
     color: var(--dos-yellow);
     text-decoration: none;
-    padding: calc(var(--min-touch-target) / 4);
-    min-height: var(--min-touch-target);
-    display: flex;
-    align-items: center;
-    position: relative;
 }
 
 nav a:before {

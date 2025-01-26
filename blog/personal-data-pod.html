@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baseUrl" content="/rizomorf">
+    <title>Setting up a Personal Data Pod - DOS Mode</title>
+    <link rel="stylesheet" href="/rizomorf/css/fonts.css">
+    <link rel="stylesheet" href="/rizomorf/css/style.css">
+    <script defer src="/rizomorf/js/title.js"></script>
+    <script defer src="/rizomorf/js/search.js"></script>
+    <script defer src="/rizomorf/js/dos-prompt.js"></script>
+    <style>
+        /* Main layout */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 2px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background: var(--dos-black);
+            gap: 0;
+            font-family: 'Perfect DOS VGA 437', monospace;
+            text-align: left;
+        }
+
+        /* Title bar wrapper */
+        .title-bar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-frame);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            text-align: left;
+        }
+
+        /* Window controls */
+        .window-controls {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            padding: 0.25rem 1rem;
+            color: var(--dos-black);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            font-weight: bold;
+            z-index: 1002;
+            height: calc(var(--title-height) - 8px);
+        }
+
+        /* Navigation wrapper */
+        .nav-wrapper {
+            background: var(--dos-black);
+            padding: var(--spacing-unit) 0;
+            text-align: left;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        nav a {
+            color: var(--dos-yellow);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: transparent;
+            color: var(--dos-yellow);
+            border-bottom: 2px solid var(--dos-yellow);
+        }
+
+        /* Main content wrapper */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: var(--spacing-unit);
+            min-height: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+
+        /* DOS prompt */
+        #dos-prompt {
+            background: var(--dos-black);
+            padding: 1rem 2rem;
+            margin-top: auto;
+            position: sticky;
+            bottom: 2px;
+            z-index: 1000;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                padding: var(--spacing-unit);
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                flex: 0 1 auto;
+            }
+        }
+    </style>
+    <script>
+        // Force scroll to top on page load and navigation
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'instant'
+            });
+        }
+        
+        // Run on initial load
+        window.onload = scrollToTop;
+        
+        // Run on DOM content loaded
+        document.addEventListener('DOMContentLoaded', scrollToTop);
+        
+        // Run on history changes (navigation)
+        window.addEventListener('popstate', scrollToTop);
+        
+        // Run on hash changes
+        window.addEventListener('hashchange', scrollToTop);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add typewriter effect to content
+            function addTypewriterEffect(element) {
+                const textNodes = [];
+                
+                // Recursively get all text nodes
+                function getTextNodes(node) {
+                    if (node.nodeType === 3) { // Text node
+                        textNodes.push(node);
+                    } else {
+                        for (let child of node.childNodes) {
+                            getTextNodes(child);
+                        }
+                    }
+                }
+                
+                getTextNodes(element);
+                
+                // Store original text and clear
+                const originalTexts = textNodes.map(node => node.textContent);
+                textNodes.forEach(node => node.textContent = '');
+                
+                let currentNode = 0;
+                let currentChar = 0;
+                const typeSpeed = 10;
+                
+                function typeChar() {
+                    if (currentNode < textNodes.length) {
+                        const node = textNodes[currentNode];
+                        const text = originalTexts[currentNode];
+                        
+                        if (currentChar < text.length) {
+                            node.textContent += text[currentChar];
+                            currentChar++;
+                            setTimeout(typeChar, typeSpeed);
+                        } else {
+                            currentNode++;
+                            currentChar = 0;
+                            setTimeout(typeChar, typeSpeed);
+                        }
+                    }
+                }
+                
+                typeChar();
+            }
+
+            // Apply to main content
+            const content = document.querySelector('.content-wrapper');
+            if (content) {
+                addTypewriterEffect(content);
+            }
+        });
+    </script>
+</head>
+<body data-page-title="Setting up a Personal Data Pod">
+    <div class="title-bar-wrapper">
+        <div class="window-controls">
+            [guest]
+        </div>
+    </div>
+    
+    <div class="nav-wrapper">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="/rizomorf/">Index</a>
+            <a href="/rizomorf/about.html">FAQ</a>
+            <a href="/rizomorf/blog/">Blog</a>
+            <a href="/rizomorf/ux-work/">Work</a>
+            <a href="/rizomorf/newsletter.html">Newsletter</a>
+        </nav>
+    </div>
+
+    <div class="content-wrapper">
+        
+        <section>
+<h2>why a personal data pod?</h2>
+<p>The Solid project, initiated by Tim Berners-Lee, enables true data ownership. By hosting my own Pod:</p>
+<ul>
+<li>I control my data storage</li>
+<li>I decide who can access what</li>
+<li>My content lives independent of applications</li>
+<li>I can move/backup data easily</li>
+</ul>
+</section>
+<section>
+<h2>setup process</h2>
+<ol>
+<li>Install Community Solid Server</li>
+<li>Configure for NAS deployment</li>
+<li>Set up authentication</li>
+<li>Create initial Pod structure</li>
+</ol>
+<p>Status: In progress...</p>
+</section>
+        
+        
+        <div id="dos-prompt" style="position: static; margin: var(--spacing-unit) 0 0; padding: 0;"></div>
+        
+    </div>
+
+    <div class="scanlines"></div>
+</body>
+</html> 

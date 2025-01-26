@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Brand L Component</title>
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="button-brand-l.css">
+    <script src="button-brand-l.js" defer></script>
+    <style>
+        body {
+            background: var(--colors-dos-black);
+            color: var(--colors-dos-yellow);
+            font-family: 'Perfect DOS VGA 437', monospace;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid var(--colors-dos-yellow);
+        }
+
+        .demo-section h2 {
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .state-label {
+            color: var(--colors-dos-dim);
+            margin-bottom: 0.5rem;
+            font-size: 14px;
+        }
+
+        code {
+            display: block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid var(--colors-dos-dim);
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+
+        .figma-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px dashed var(--colors-dos-yellow);
+        }
+    </style>
+</head>
+<body>
+    <h1>Button Brand L Component</h1>
+    
+    <div class="demo-section">
+        <h2>Button States</h2>
+        <div class="button-grid">
+            <div>
+                <div class="state-label">Default</div>
+                <button-brand-l>Button label</button-brand-l>
+            </div>
+            <div>
+                <div class="state-label">Hover</div>
+                <button-brand-l class="hover">Button label</button-brand-l>
+            </div>
+            <div>
+                <div class="state-label">Pressed</div>
+                <button-brand-l class="active">Button label</button-brand-l>
+            </div>
+            <div>
+                <div class="state-label">Disabled</div>
+                <button-brand-l disabled>Button label</button-brand-l>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Usage</h2>
+        <p>Import and use the button component:</p>
+        <code>
+// Import styles and script
+&lt;link rel="stylesheet" href="/css/tokens.css"&gt;
+&lt;link rel="stylesheet" href="/components/button-brand-l/button-brand-l.css"&gt;
+&lt;script src="/components/button-brand-l/button-brand-l.js" defer&gt;&lt;/script&gt;
+
+// Use in HTML
+&lt;button-brand-l&gt;Button label&lt;/button-brand-l&gt;
+&lt;button-brand-l disabled&gt;Button label&lt;/button-brand-l&gt;
+        </code>
+    </div>
+
+    <div class="figma-info">
+        <h2>Figma Component Info</h2>
+        <p>This component is synchronized with the Figma design system:</p>
+        <ul>
+            <li>Component name: Button Brand L</li>
+            <li>Design tokens: Automatically synced from Figma Tokens plugin</li>
+            <li>States: Default, Hover, Pressed, Disabled</li>
+        </ul>
+    </div>
+
+    <script>
+        // Force hover state on second button for demo
+        document.querySelector('.hover').addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'var(--colors-dos-yellow)';
+            e.target.style.color = 'var(--colors-dos-black)';
+            e.target.style.boxShadow = '0px 0px 20px rgba(255, 176, 0, 0.50)';
+            e.target.querySelector('.button-brand-l__icon-inner').style.backgroundColor = 'var(--colors-dos-black)';
+        });
+
+        // Force active state on third button for demo
+        const activeButton = document.querySelector('.active');
+        activeButton.style.backgroundColor = 'rgba(255, 176, 0, 0.70)';
+        activeButton.style.color = 'var(--colors-dos-black)';
+        activeButton.style.borderColor = 'transparent';
+        activeButton.querySelector('.button-brand-l__icon-inner').style.backgroundColor = 'var(--colors-dos-black)';
+    </script>
+</body>
+</html> 

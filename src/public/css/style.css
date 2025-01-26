@@ -235,6 +235,25 @@ a:focus {
     line-height: var(--min-touch-target);
 }
 
+/* DOS Prompt input styles */
+.prompt-input {
+    background: var(--dos-black);
+    color: var(--dos-yellow);
+    border: none;
+    font-family: 'DOS', monospace;
+    font-size: 1rem;
+    flex-grow: 1;
+    outline: none;
+    padding: 0;
+    height: var(--min-touch-target);
+    line-height: var(--min-touch-target);
+}
+
+.prompt-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 /* Footer styling */
 footer {
     position: relative;

@@ -4,7 +4,9 @@
   "description": "Personal website with DOS theme",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && eleventy",
+    "setup:fonts": "node scripts/setup-fonts.js",
+    "build:tokens": "node scripts/build-tokens.js",
+    "build": "npm run clean && npm run build:tokens && eleventy",
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "serve": "eleventy --serve",
     "deploy": "node scripts/deploy.js"
@@ -17,7 +19,10 @@
     "marked": "^4.0.0"
   },
   "devDependencies": {
+    "@tokens-studio/sd-transforms": "^0.12.2",
     "cross-env": "^7.0.3",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "style-dictionary": "^3.9.2",
+    "token-transformer": "^0.0.33"
   }
-} 
+}

@@ -1,0 +1,120 @@
+/* Button Base */
+.dos-button {
+  /* Reset */
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  /* Base styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: 'Perfect DOS VGA 437', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  min-width: 120px;
+}
+
+/* Icon styles */
+.dos-button__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.42px 2px;
+}
+
+.dos-button__icon-inner {
+  width: 20.58px;
+  height: 20.58px;
+}
+
+/* Default state */
+.dos-button {
+  border: 1px solid var(--colors-dos-yellow);
+  color: var(--colors-dos-yellow);
+  background: transparent;
+}
+
+.dos-button .dos-button__icon-inner {
+  background-color: var(--colors-dos-yellow);
+}
+
+/* Hover state */
+.dos-button:hover {
+  background-color: var(--colors-dos-yellow);
+  color: var(--colors-dos-black);
+  box-shadow: 0px 0px 20px rgba(255, 176, 0, 0.50);
+}
+
+.dos-button:hover .dos-button__icon-inner {
+  background-color: var(--colors-dos-black);
+}
+
+/* Active/Pressed state */
+.dos-button:active {
+  background-color: rgba(255, 176, 0, 0.70);
+  color: var(--colors-dos-black);
+  border-color: transparent;
+}
+
+.dos-button:active .dos-button__icon-inner {
+  background-color: var(--colors-dos-black);
+}
+
+/* Disabled state */
+.dos-button:disabled {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #AAADB1;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+.dos-button:disabled .dos-button__icon-inner {
+  background-color: #66696D;
+}
+
+/* Loading state */
+.dos-button--loading {
+  position: relative;
+  color: transparent;
+}
+
+.dos-button--loading::after {
+  content: "";
+  position: absolute;
+  width: 20.58px;
+  height: 20.58px;
+  border: 2px solid var(--colors-dos-yellow);
+  border-radius: 50%;
+  border-right-color: transparent;
+  animation: button-spin 0.8s linear infinite;
+}
+
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Font face for Perfect DOS VGA 437 */
+@font-face {
+  font-family: 'Perfect DOS VGA 437';
+  src: url('/fonts/PerfectDOSVGA437.woff2') format('woff2'),
+       url('/fonts/PerfectDOSVGA437.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} 

@@ -24,9 +24,11 @@ module.exports = function(eleventyConfig) {
         return collectionApi.getFilteredByGlob("src/content/blog/**/*.md")
             .filter(post => post.data.title !== "Blog" && post.data.title !== "feed")
             .map(post => {
-                // Always use file's last modified date
-                const stats = fs.statSync(post.inputPath);
-                post.data.date = stats.mtime; // Use mtime (modified time) instead of birthtime
+                // Use frontmatter date if available, otherwise use file's modified date
+                if (!post.data.date) {
+                    const stats = fs.statSync(post.inputPath);
+                    post.data.date = stats.mtime;
+                }
                 return post;
             })
             .sort((a, b) => b.data.date - a.data.date); // Sort by date in descending order

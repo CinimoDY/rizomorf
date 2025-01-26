@@ -487,19 +487,53 @@ section:last-child {
 }
 
 .formkit-form button {
-    background: var(--dos-black) !important;
-    color: var(--dos-yellow) !important;
-    border: 1px solid var(--dos-yellow) !important;
-    padding: 0.5rem 1rem !important;
-    font-size: 1rem !important;
+    /* Reset */
+    appearance: none !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
     cursor: pointer !important;
-    min-height: var(--min-touch-target) !important;
-    width: auto !important;
+
+    /* Base styles */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 16px !important;
+    font-family: 'Perfect DOS VGA 437', monospace !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    min-width: 120px !important;
+
+    /* Default state */
+    border: 1px solid #FFB000 !important;
+    color: #FFB000 !important;
+    background: transparent !important;
 }
 
 .formkit-form button:hover {
-    background: var(--dos-yellow) !important;
-    color: var(--dos-black) !important;
+    background: rgba(25, 25, 25, 0.75) !important;
+    color: #FFD700 !important;
+    border: 1px solid #FFB000 !important;
+    box-shadow: 0px 0px 20px rgba(255, 176, 0, 0.50) !important;
+}
+
+.formkit-form button:active {
+    background: #1D1D1D !important;
+    color: rgba(255, 176, 0, 0.70) !important;
+    border: 1px solid #FFB000 !important;
+    box-shadow: 0px 0px 20px rgba(255, 176, 0, 0.50) !important;
+}
+
+.formkit-form button:disabled {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #AAADB1 !important;
+    border: none !important;
+    cursor: not-allowed !important;
 }
 
 .formkit-alert {

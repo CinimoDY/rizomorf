@@ -34,9 +34,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    border: 2px solid var(--dos-yellow);
-    border-top: none;
-    border-bottom: none;
+    border-left: 2px solid var(--dos-yellow);
+    border-right: 2px solid var(--dos-yellow);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Title Bar */
@@ -44,8 +45,8 @@ body:before {
     content: var(--title-path) attr(data-page-title);
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: -2px;
+    right: -2px;
     height: var(--title-height);
     line-height: var(--title-height);
     background-color: var(--dos-yellow);
@@ -65,8 +66,8 @@ body:after {
     content: "";
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -2px;
+    right: -2px;
     height: var(--title-height);
     background-color: var(--dos-black);
     border-top: 2px solid var(--dos-yellow);
@@ -457,4 +458,40 @@ section {
 
 section:last-child {
     margin-bottom: 0;
+}
+
+/* Newsletter signup */
+.newsletter-signup {
+    margin: var(--spacing-unit) 0;
+    padding: var(--spacing-unit);
+    border: 1px solid var(--dos-yellow);
+}
+
+.newsletter-signup h2 {
+    margin-top: 0;
+    color: var(--dos-yellow);
+}
+
+.newsletter-signup input[type="email"] {
+    width: 100%;
+    margin: var(--spacing-unit) 0;
+    padding: 0.5rem;
+    background: var(--dos-black);
+    color: var(--dos-yellow);
+    border: 1px solid var(--dos-yellow);
+    font-family: "Courier New", Courier, monospace;
+}
+
+.newsletter-signup button {
+    background: var(--dos-black);
+    color: var(--dos-yellow);
+    border: 1px solid var(--dos-yellow);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.newsletter-signup button:hover {
+    background: var(--dos-yellow);
+    color: var(--dos-black);
 } 

@@ -145,21 +145,45 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Existing scroll and menu toggle code...
-
             // Add typewriter effect to content
             function addTypewriterEffect(element) {
-                const text = element.innerHTML;
-                element.innerHTML = '';
+                const textNodes = [];
                 
-                let i = 0;
-                const typeSpeed = 10; // Adjust typing speed (ms)
+                // Recursively get all text nodes
+                function getTextNodes(node) {
+                    if (node.nodeType === 3) { // Text node
+                        textNodes.push(node);
+                    } else {
+                        for (let child of node.childNodes) {
+                            getTextNodes(child);
+                        }
+                    }
+                }
+                
+                getTextNodes(element);
+                
+                // Store original text and clear
+                const originalTexts = textNodes.map(node => node.textContent);
+                textNodes.forEach(node => node.textContent = '');
+                
+                let currentNode = 0;
+                let currentChar = 0;
+                const typeSpeed = 10;
                 
                 function typeChar() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(typeChar, typeSpeed);
+                    if (currentNode < textNodes.length) {
+                        const node = textNodes[currentNode];
+                        const text = originalTexts[currentNode];
+                        
+                        if (currentChar < text.length) {
+                            node.textContent += text[currentChar];
+                            currentChar++;
+                            setTimeout(typeChar, typeSpeed);
+                        } else {
+                            currentNode++;
+                            currentChar = 0;
+                            setTimeout(typeChar, typeSpeed);
+                        }
                     }
                 }
                 

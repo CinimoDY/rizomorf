@@ -51,32 +51,33 @@
 
         /* Navigation wrapper */
         .nav-wrapper {
-            position: fixed;
-            top: calc(var(--title-height) + 2px);
-            left: 0;
-            right: 0;
             background: var(--dos-black);
-            z-index: var(--z-nav);
+            padding: var(--spacing-unit) 0;
+            margin-top: var(--title-height);
         }
 
         /* Navigation */
         nav {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
             display: flex;
-            gap: 1rem;
-            padding: 0.5rem 2rem;
-            height: 2rem;
+            gap: 2rem;
+            padding: 0 var(--spacing-unit);
             align-items: center;
         }
 
         nav a {
             color: var(--dos-yellow);
             text-decoration: none;
-            padding: 0.25rem 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
         }
 
         nav a:hover {
-            background: var(--dos-yellow);
-            color: var(--dos-black);
+            background: transparent;
+            color: var(--dos-yellow);
+            border-bottom: 2px solid var(--dos-yellow);
         }
 
         /* Main content wrapper */
@@ -84,7 +85,10 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 2rem;
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            width: 100%;
+            padding: var(--spacing-unit);
             min-height: 0;
             position: relative;
             z-index: 1;
@@ -102,46 +106,13 @@
 
         /* Mobile adjustments */
         @media (max-width: 600px) {
-            .content-wrapper {
-                padding: 1rem;
-            }
-
             nav {
-                padding: 0.5rem 1rem;
-            }
-
-            .nav-wrapper {
-                position: fixed;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 4px;
-                right: 4px;
-                background: var(--dos-black);
-                border: 1px solid var(--dos-yellow);
-                flex-direction: column;
-                height: auto;
-                padding: 0;
-            }
-
-            nav.show {
-                display: flex;
+                gap: 1rem;
+                justify-content: space-between;
             }
 
             nav a {
-                padding: 0.75rem;
-                border-bottom: 1px solid var(--dos-yellow);
-            }
-
-            nav a:last-child {
-                border-bottom: none;
-            }
-
-            #dos-prompt {
-                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -189,11 +160,10 @@
     
     <div class="nav-wrapper">
         <nav role="navigation" aria-label="Main navigation">
-            <a href="{{ baseUrl }}/blog/">RECENTS</a>
-            <a href="{{ baseUrl }}/ux-work/">UX WORK</a>
-            <a href="{{ baseUrl }}/about.html">ABOUT</a>
-            <a href="{{ baseUrl }}/faq.html">FAQ</a>
-            <a href="{{ baseUrl }}/">INDEX</a>
+            <a href="{{ baseUrl }}/">Home</a>
+            <a href="{{ baseUrl }}/about.html">Bio</a>
+            <a href="{{ baseUrl }}/blog/">Blog</a>
+            <a href="{{ baseUrl }}/ux-work/">Work</a>
         </nav>
     </div>
 

@@ -32,7 +32,7 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
-    padding: calc(var(--title-height) + var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--title-height) + var(--spacing-unit));
+    padding: 0;
     overflow-x: hidden;
     border: 2px solid var(--dos-yellow);
     border-top: none;
@@ -172,52 +172,27 @@ a:focus {
 
 /* Content structure */
 main {
-    position: relative;
-    z-index: var(--z-content);
-    width: 100%;
     max-width: var(--content-max-width);
-    margin: 0;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
-    display: flex;
-    flex-direction: column;
-}
-
-/* Ensure content fills available space */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: var(--z-content);
+    margin: 0 auto;
+    padding: var(--spacing-unit);
+    width: 100%;
 }
 
 article {
     margin: var(--spacing-unit) 0;
 }
 
-/* Article header and metadata */
-article header {
-    margin-bottom: var(--spacing-unit);
-}
-
-.meta {
-    color: var(--dos-dim);
-    margin: calc(var(--spacing-unit) / 2) 0;
-}
-
-/* Headers with DOS-style underlines */
+/* Headers */
 h1, h2, h3 {
-    border-bottom: none;
-    padding-bottom: 0.5rem;
-    margin: 2rem 0 1rem 0;
-    clear: both;
+    margin: 2rem 0 1rem;
+    line-height: 1.2;
 }
 
 h1:first-child {
     margin-top: 0;
-    padding-top: calc(var(--spacing-unit) * 2);
 }
 
-/* Lists with DOS-style markers */
+/* Lists */
 ul {
     list-style: none;
     padding-left: 1rem;
@@ -225,7 +200,7 @@ ul {
 }
 
 ul li {
-    padding: calc(var(--min-touch-target) / 4) 0;
+    padding: 0.25rem 0;
     position: relative;
 }
 
@@ -236,28 +211,32 @@ ul li:before {
     left: -1rem;
 }
 
-/* Links styled as commands */
+/* Links */
 a {
     color: var(--dos-yellow);
     text-decoration: underline;
-    padding: 0.25rem 0.5rem;
-    display: inline-block;
-    min-height: calc(var(--min-touch-target) * 0.75);
+    padding: 0.25rem 0;
 }
 
-/* Prompt styling */
-.prompt {
-    color: var(--dos-yellow);
-    margin: var(--spacing-unit) 0;
-    font-weight: bold;
-    min-height: var(--min-touch-target);
+a:hover,
+a:focus {
+    color: var(--dos-bright);
+    outline: none;
+}
+
+/* DOS Prompt */
+#dos-prompt {
+    margin: var(--spacing-unit) 0 0;
+    padding: 0;
+    font-family: 'DOS', monospace;
+    background: var(--dos-black);
+}
+
+.prompt-line {
     display: flex;
     align-items: center;
-    padding-left: 0;
-}
-
-.prompt:before {
-    content: none;
+    margin: 0;
+    min-height: var(--min-touch-target);
 }
 
 /* Footer styling */
@@ -293,18 +272,23 @@ footer .prompt:after {
 @media (max-width: 600px) {
     :root {
         --spacing-unit: 0.75rem;
-        --title-path: "D:\\Dominic K\\...\\Guest\\";
+        /* --title-path: "D:\\Dominic K\\...\\Guest\\"; */
     }
 
     body {
-        margin: 0;
-        padding: calc(var(--title-height) + var(--spacing-unit) * 5) var(--spacing-unit) var(--spacing-unit);
         border-width: 1px;
     }
 
     main {
         padding: var(--spacing-unit);
-        margin-top: calc(var(--spacing-unit) * 1.5);
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
     }
 
     nav {

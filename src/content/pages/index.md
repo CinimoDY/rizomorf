@@ -5,19 +5,18 @@ permalink: /index.html
 ---
 
 <section class="dos-directory">
-<pre>
-D:\>DIR
+<pre>D:\&gt;DIR
 
 Volume in drive D is RIZOMORF
 Volume Serial Number is 2024-01-19
 
  Directory of D:\
 
-25-01-15  02:33p    <DIR>          BLOG
-09-06-25  02:33p    <DIR>          UX_WORK
+25-01-15  02:33p    &lt;DIR&gt;          BLOG
+09-06-25  02:33p    &lt;DIR&gt;          UX_WORK
 82-06-30  02:33p         1,337     ABOUT.TXT
 25-01-12  02:33p           420     FAQ.TXT
-65-12-27  02:33p    <DIR>          SPACEWAR
+65-12-27  02:33p    &lt;DIR&gt;          SPACEWAR
           2 File(s)      1,757 bytes
           3 Dir(s)   640K bytes free
 
@@ -28,9 +27,9 @@ You have found your way to my webnode/index which i can now directly edit
 who am i?
 
 i enjoy creating tools that make life easier.
-> music production and sound design
-> creative coding and generative art
-> user experience design</pre>
+&gt; music production and sound design
+&gt; creative coding and generative art
+&gt; user experience design</pre>
 
 <div id="dos-prompt-index"></div>
 </section>

@@ -143,6 +143,35 @@
                 nav.classList.toggle('show');
             });
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Existing scroll and menu toggle code...
+
+            // Add typewriter effect to content
+            function addTypewriterEffect(element) {
+                const text = element.innerHTML;
+                element.innerHTML = '';
+                
+                let i = 0;
+                const typeSpeed = 10; // Adjust typing speed (ms)
+                
+                function typeChar() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeChar, typeSpeed);
+                    }
+                }
+                
+                typeChar();
+            }
+
+            // Apply to main content
+            const content = document.querySelector('.content-wrapper');
+            if (content) {
+                addTypewriterEffect(content);
+            }
+        });
     </script>
 </head>
 <body data-page-title="{{ title }}">

@@ -59,11 +59,13 @@ Volume Serial Number is 2024-01-19
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const pre = document.querySelector('.dos-directory pre');
-    const text = pre.textContent;
+    if (!pre) return;
+    
+    const text = pre.textContent.trim();
     pre.textContent = '';
     
     let i = 0;
-    const typeSpeed = 10; // Adjust typing speed (ms)
+    const typeSpeed = 25; // Slightly slower for better readability
     
     function typeChar() {
         if (i < text.length) {
@@ -73,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    typeChar();
+    // Start typing after a short delay
+    setTimeout(typeChar, 500);
 
     // Move the DOS prompt to the index location
     const bottomPrompt = document.getElementById('dos-prompt');

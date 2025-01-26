@@ -219,7 +219,11 @@
         {% block content %}
         {{ content | safe }}
         {% endblock %}
+        {% if title != "Index" %}
         <div id="dos-prompt" style="position: static; margin: var(--spacing-unit) 0 0; padding: 0;"></div>
+        {% else %}
+        <div id="dos-prompt" style="display: none;"></div>
+        {% endif %}
     </div>
 
     <div class="scanlines"></div>

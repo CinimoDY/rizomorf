@@ -224,6 +224,7 @@ a:focus {
     font-family: 'DOS', monospace;
     background: var(--dos-black);
     z-index: var(--z-content);
+    position: static;
 }
 
 .prompt-line {

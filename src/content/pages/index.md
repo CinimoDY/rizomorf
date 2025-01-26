@@ -5,8 +5,7 @@ permalink: /index.html
 ---
 
 <section class="dos-directory">
-
-```
+<pre>
 D:\>DIR
 
 Volume in drive D is RIZOMORF
@@ -21,10 +20,9 @@ Volume Serial Number is 2024-01-19
 65-12-27  02:33p    <DIR>          SPACEWAR
           2 File(s)      1,757 bytes
           3 Dir(s)   640K bytes free
-```
+</pre>
 
 <div id="dos-prompt-index"></div>
-
 </section>
 
 <section>

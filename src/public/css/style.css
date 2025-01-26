@@ -101,10 +101,6 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    position: fixed;
-    top: calc(var(--title-height) + 2px);
-    left: 0;
-    right: 0;
     padding: var(--spacing-unit);
     background-color: var(--dos-black);
     z-index: var(--z-nav);
@@ -112,12 +108,9 @@ nav {
 
 /* Navigation wrapper to ensure background extends full width */
 .nav-wrapper {
-    position: fixed;
-    top: calc(var(--title-height) + 2px);
-    left: 0;
-    right: 0;
     background-color: var(--dos-black);
     z-index: var(--z-nav);
+    margin-top: calc(var(--title-height) + 2px);
 }
 
 nav a {
@@ -173,8 +166,7 @@ a:focus {
 
 /* Content structure */
 main {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
+    margin-top: 0;
     padding: var(--spacing-unit);
     width: 100%;
 }

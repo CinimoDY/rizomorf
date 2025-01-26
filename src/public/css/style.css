@@ -219,7 +219,7 @@ a:focus {
 
 /* DOS Prompt */
 #dos-prompt {
-    margin: var(--spacing-unit) var(--spacing-unit) 0;
+    margin: var(--spacing-unit) 0 0;
     padding: 0;
     font-family: 'DOS', monospace;
     background: var(--dos-black);
@@ -399,7 +399,7 @@ article section:not(:last-child) {
 
 /* Remove any special positioning for index page */
 #dos-prompt-index {
-    margin: var(--spacing-unit) var(--spacing-unit) 0;
+    margin: var(--spacing-unit) 0 0;
 }
 
 /* Section spacing */

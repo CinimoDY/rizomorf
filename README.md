@@ -40,5 +40,6 @@
 21. [ ] Fix mobile layout issues
 23. [ ] implement the resting hand gesture on touch devices :)
         - use it as help for the command prompt? 
-
-
+24. [ ] welcome visitors with chat gpt posing as friendly, professional dos prompt. offer help on what commands/activities/interests visitor is looking for. guide visitors through thr site. want to learn about professional ux, 
+or music or pictures. or projects? timeline - get visitors to coding, design systems, 
+cursor ai, blog post about what enablement cursor.ai is.
